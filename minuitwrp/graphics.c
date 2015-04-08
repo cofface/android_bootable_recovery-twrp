@@ -47,6 +47,10 @@
 #define PIXEL_FORMAT GGL_PIXEL_FORMAT_RGBX_8888
 #define PIXEL_SIZE 4
 #endif
+#ifdef RECOVERY_RGBA_8888
+#define PIXEL_FORMAT GGL_PIXEL_FORMAT_RGBA_8888
+#define PIXEL_SIZE 4
+#endif
 #ifndef PIXEL_FORMAT
 #define PIXEL_FORMAT GGL_PIXEL_FORMAT_RGB_565
 #define PIXEL_SIZE 2
@@ -208,6 +212,17 @@ static int get_framebuffer(GGLSurface *fb)
         vi.blue.length    = 8;
         vi.transp.offset  = 0;
         vi.transp.length  = 8;
+	} else if (PIXEL_FORMAT == GGL_PIXEL_FORMAT_RGBA_8888) {
+        fprintf(stderr, "Pixel format: RGBA_8888\n");
+        if (PIXEL_SIZE != 4)    fprintf(stderr, "E: Pixel Size mismatch!\n");
+        vi.transp.offset  = 24;
+        vi.transp.length  = 8;
+        vi.red.offset     = 0;
+        vi.red.length     = 8;
+        vi.green.offset   = 8;
+        vi.green.length   = 8;
+        vi.blue.offset    = 16;
+        vi.blue.length    = 8;
     } else if (PIXEL_FORMAT == GGL_PIXEL_FORMAT_RGB_565) {
 #ifdef RECOVERY_RGB_565
 		fprintf(stderr, "Pixel format: RGB_565\n");
