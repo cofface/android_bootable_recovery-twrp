@@ -1546,6 +1546,7 @@ int GUIAction::adbsideloadcancel(std::string arg)
 int GUIAction::openrecoveryscript(std::string arg)
 {
 	int op_status = 1;
+	
 	operation_start("OpenRecoveryScript");
 	if (simulate) {
 		simulate_progress_bar();
@@ -1576,11 +1577,11 @@ int GUIAction::openrecoveryscript(std::string arg)
 			TWFunc::Disable_Stock_Recovery_Replace();
 			usleep(2000000); // Sleep for 2 seconds before rebooting
 			TWFunc::tw_reboot(rb_system);
+			usleep(5000000); // Sleep for 5 seconds to allow reboot to occur
 		} else {
 			DataManager::SetValue("tw_page_done", 1);
 		}
 		operation_end(op_status);
-		return 0;
 	}
 	return 0;
 }
