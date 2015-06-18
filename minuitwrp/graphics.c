@@ -177,6 +177,8 @@ static int get_framebuffer(GGLSurface *fb)
         close(fd);
         return -1;
     }
+    if (ioctl(fd, FBIOGET_FSCREENINFO, &fi) < 0) {
+        perror("failed to get fb0 info");
         close(fd);
         return -1;
     }
