@@ -1213,9 +1213,6 @@ int TWPartitionManager::Wipe_Media_From_Data(void) {
 		Remove_MTP_Storage(dat->MTP_Storage_ID);
 		TWFunc::removeDir("/data/media", false);
 		dat->Recreate_Media_Folder();
-		// Unmount and remount - slightly hackish way to ensure that the "/sdcard" folder is still mounted properly after wiping
-		dat->UnMount(false);
-		dat->Mount(false);
 		Add_MTP_Storage(dat->MTP_Storage_ID);
 		return true;
 	} else {

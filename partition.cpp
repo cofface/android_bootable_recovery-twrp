@@ -478,6 +478,7 @@ bool TWPartition::Process_Flags(string Flags, bool Display_Error) {
 			}
 		} else if (strcmp(ptr, "settingsstorage") == 0) {
 			Is_Storage = true;
+			Is_Settings_Storage = true;
 		} else if (strcmp(ptr, "andsec") == 0) {
 			Has_Android_Secure = true;
 		} else if (strcmp(ptr, "canbewiped") == 0) {
@@ -2116,23 +2117,22 @@ void TWPartition::Recreate_Media_Folder(void) {
 	} else if (!TWFunc::Path_Exists("/data/media")) {
 		PartitionManager.Mount_By_Path(Symlink_Mount_Point, true);
 		LOGINFO("Recreating /data/media folder.\n");
-		mkdir("/data/media", S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+		mkdir("/data/media", 0770);
 		string Internal_path = DataManager::GetStrValue("tw_internal_path");
 		if (!Internal_path.empty()) {
 			LOGINFO("Recreating %s folder.\n", Internal_path.c_str());
-			mkdir(Internal_path.c_str(), S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+			mkdir(Internal_path.c_str(), 0770);
 		}
 #ifdef TW_INTERNAL_STORAGE_PATH
-		mkdir(EXPAND(TW_INTERNAL_STORAGE_PATH), S_IRWXU | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH);
+		mkdir(EXPAND(TW_INTERNAL_STORAGE_PATH), 0770);
 #endif
 #ifdef HAVE_SELINUX
-		// Attempt to set the correct SELinux contexts on the folder
-		fixPermissions perms;
-		perms.fixDataInternalContexts();
 		// Afterwards, we will try to set the
 		// default metadata that we were hopefully able to get during
 		// early boot.
 		tw_set_default_metadata("/data/media");
+		if (!Internal_path.empty())
+			tw_set_default_metadata(Internal_path.c_str());
 #endif
 		// Toggle mount to ensure that "internal sdcard" gets mounted
 		PartitionManager.UnMount_By_Path(Symlink_Mount_Point, true);
