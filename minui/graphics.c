@@ -31,7 +31,12 @@
 
 #include <pixelflinger/pixelflinger.h>
 
+#ifdef BOARD_USE_CUSTOM_RECOVERY_FONT
+#include BOARD_USE_CUSTOM_RECOVERY_FONT
+#else
 #include "font_10x18.h"
+#endif
+
 #include "minui.h"
 
 #define NUM_BUFFERS 2
