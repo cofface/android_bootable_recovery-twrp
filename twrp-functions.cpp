@@ -509,6 +509,19 @@ int TWFunc::tw_reboot(RebootCommand command)
 	// Always force a sync before we reboot
 	sync();
 	Update_Log_File();
+	
+#ifdef TW_EXTERNAL_STORAGE_PATH
+	string Storage_Path = EXPAND(TW_EXTERNAL_STORAGE_PATH);
+	string Command = "umount " + Storage_Path;
+	string result;
+	if (TWFunc::Exec_Cmd(Command, result) == 0) {
+		LOGINFO("Umounted '%s'\n", Storage_Path.c_str());
+	} else {
+		LOGINFO("Unable to umounted '%s'\n", Storage_Path.c_str());
+	}
+	TWFunc::Update_Log_File();
+	sleep(1);
+#endif
 
 	switch (command) {
 		case rb_current:
