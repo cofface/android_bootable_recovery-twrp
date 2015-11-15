@@ -14,8 +14,8 @@
 	</include>
 
 	<resources>
-		<resource name="font" type="font" filename="RobotoCondensed-Regular.ttf" size="30" />
-		<resource name="fixed" type="font" filename="DroidSansMono.ttf" size="22" />
+		<resource name="font" type="font" filename="DroidSansFallback.ttf" size="30" fallback="Roboto-Regular-30" />
+		<resource name="fixed" type="font" filename="DroidSansFallback.ttf" size="22" />
 		<resource name="twrplogo" type="image" filename="twrplogo" retainaspect="1" />
 		<resource name="main_button" type="image" filename="button" />
 		<resource name="file_icon" type="image" filename="file" retainaspect="1" />
@@ -249,7 +249,7 @@
 			<object type="text" color="%text_color%">
 				<font resource="font" />
 				<placement x="100" y="5" />
-				<text>Team Win Recovery Project  v%tw_version%</text>
+				<text>Team Win Recovery Project  v%tw_version%(cofface)</text>
 			</object>
 
 			<object type="text" color="%text_color%">
@@ -260,7 +260,7 @@
 					<condition var1="tw_battery" op="&gt;" var2="0" />
 					<condition var1="tw_battery" op="&lt;" var2="101" />
 				</conditions>
-				<text>Battery Level: %tw_battery%</text>
+				<text>电量: %tw_battery%</text>
 			</object>
 
 			<object type="text" color="%text_color%">
@@ -275,14 +275,14 @@
 				<conditions>
 					<condition var1="tw_no_cpu_temp" var2="0" />
 				</conditions>
-				<text>CPU: %tw_cpu_temp% &#xB0;C</text>
+				<text>温度: %tw_cpu_temp% C</text>
 			</object>
 
 			<object type="text" color="%text_color%">
 				<condition var1="tw_simulate_actions" var2="1" />
 				<font resource="font" />
 				<placement x="750" y="40" />
-				<text>SIMULATING ACTIONS</text>
+				<text>模拟操作</text>
 			</object>
 
 			<object type="button">
@@ -333,13 +333,13 @@
 			<object type="text" color="%text_color%">
 				<font resource="font" />
 				<placement x="%sort_text_x%" y="%sort_asc_text_y%" />
-				<text>Sort Ascending:</text>
+				<text>升序:</text>
 			</object>
 
 			<object type="button">
 				<placement x="%sort_col1_button_x%" y="%sort_asc_button_y%" />
 				<font resource="font" color="%button_text_color%" />
-				<text>Name</text>
+				<text>名字</text>
 				<image resource="sort_button" />
 				<action function="set">tw_gui_sort_order=1</action>
 			</object>
@@ -347,7 +347,7 @@
 			<object type="button">
 				<placement x="%sort_col2_button_x%" y="%sort_asc_button_y%" />
 				<font resource="font" color="%button_text_color%" />
-				<text>Date</text>
+				<text>日期</text>
 				<image resource="sort_button" />
 				<action function="set">tw_gui_sort_order=2</action>
 			</object>
@@ -355,7 +355,7 @@
 			<object type="button">
 				<placement x="%sort_col3_button_x%" y="%sort_asc_button_y%" />
 				<font resource="font" color="%button_text_color%" />
-				<text>Size</text>
+				<text>大小</text>
 				<image resource="sort_button" />
 				<action function="set">tw_gui_sort_order=3</action>
 			</object>
@@ -363,13 +363,13 @@
 			<object type="text" color="%text_color%">
 				<font resource="font" />
 				<placement x="%sort_text_x%" y="%sort_desc_text_y%" />
-				<text>Sort Descending:</text>
+				<text>降序:</text>
 			</object>
 
 			<object type="button">
 				<placement x="%sort_col1_button_x%" y="%sort_desc_button_y%" />
 				<font resource="font" color="%button_text_color%" />
-				<text>Name</text>
+				<text>名字</text>
 				<image resource="sort_button" />
 				<action function="set">tw_gui_sort_order=-1</action>
 			</object>
@@ -377,7 +377,7 @@
 			<object type="button">
 				<placement x="%sort_col2_button_x%" y="%sort_desc_button_y%" />
 				<font resource="font" color="%button_text_color%" />
-				<text>Date</text>
+				<text>日期</text>
 				<image resource="sort_button" />
 				<action function="set">tw_gui_sort_order=-2</action>
 			</object>
@@ -385,7 +385,7 @@
 			<object type="button">
 				<placement x="%sort_col3_button_x%" y="%sort_desc_button_y%" />
 				<font resource="font" color="%button_text_color%" />
-				<text>Size</text>
+				<text>大小</text>
 				<image resource="sort_button" />
 				<action function="set">tw_gui_sort_order=-3</action>
 			</object>

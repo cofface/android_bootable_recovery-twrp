@@ -30,20 +30,20 @@
 		<style name="rebootsystem">
 			<condition var1="tw_reboot_system" var2="1" />
 			<style name="button" />
-			<text>Reboot System</text>
+			<text>重启设备</text>
 			<actions>
 				<action function="set">tw_back=main2</action>
 				<action function="set">tw_action=reboot</action>
 				<action function="set">tw_action_param=system</action>
 				<action function="set">tw_has_action2=0</action>
-				<action function="set">tw_text1=No OS Installed! Are you</action>
-				<action function="set">tw_text2=sure you wish to reboot?</action>
+				<action function="set">tw_text1=设备没安装系统！你</action>
+				<action function="set">tw_text2=真的想重启吗？</action>
 				<action function="set">tw_text3=</action>
 				<action function="set">tw_text4=</action>
-				<action function="set">tw_action_text1=Rebooting...</action>
+				<action function="set">tw_action_text1=正在重启...</action>
 				<action function="set">tw_action_text2=</action>
-				<action function="set">tw_complete_text1=Rebooting...</action>
-				<action function="set">tw_slider_text=Swipe to Reboot</action>
+				<action function="set">tw_complete_text1=正在重启...</action>
+				<action function="set">tw_slider_text=滑动按钮重启</action>
 				<action function="page">rebootcheck</action>
 			</actions>
 		</style>
@@ -78,7 +78,7 @@
 		</style>
 
 		<style name="slider">
-			<text>Swipe to Confirm</text>
+			<text>滑动按钮确认</text>
 			<font resource="font" color="%text_color%" />
 			<placement x="%center_x%" y="%slider_y%" placement="5" />
 			<resource base="slider" used="slider-used" touch="slider-touch" />
@@ -118,7 +118,7 @@
 
 			<object type="button">
 				<placement x="%col1_x%" y="%row1_y%" />
-				<text>Install</text>
+				<text>安装刷机包</text>
 				<actions>
 					<action function="queueclear"></action>
 					<action function="page">install</action>
@@ -127,43 +127,43 @@
 
 			<object type="button">
 				<placement x="%col2_x%" y="%row1_y%" />
-				<text>Backup</text>
+				<text>备份分区</text>
 				<action function="page">backup</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col3_x%" y="%row1_y%" />
-				<text>Restore</text>
+				<text>还原分区</text>
 				<action function="page">restore</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col4_x%" y="%row1_y%" />
-				<text>Wipe</text>
+				<text>清除数据</text>
 				<action function="page">wipe</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col1_x%" y="%row2_y%" />
-				<text>Mount</text>
+				<text>挂载分区</text>
 				<action function="page">mount</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col2_x%" y="%row2_y%" />
-				<text>Settings</text>
+				<text>功能设置</text>
 				<action function="page">settings</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col3_x%" y="%row2_y%" />
-				<text>Advanced</text>
+				<text>高级选项</text>
 				<action function="page">advanced</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col4_x%" y="%row2_y%" />
-				<text>Reboot</text>
+				<text>重启选项</text>
 				<action function="page">reboot</action>
 			</object>
 
@@ -175,12 +175,12 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Select Zip to Install</text>
+				<text>选择要刷入的Zip</text>
 			</object>
 
 			<object type="button" style="fillbutton">
 				<placement x="%button_full_center_x%" y="%zipstorage_text_y%" w="%button_fill_full_width%" h="%button_fill_quarter_height%" />
-				<text>Storage: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
+				<text>存储器: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
 				<actions>
 					<action function="set">tw_back=install</action>
 					<action function="page">selectstorage</action>
@@ -189,7 +189,7 @@
 
 			<object type="fileselector">
 				<placement x="%fileselector_folder_x%" y="%fileselector_install_y%" w="%fileselector_folder_width%" h="%fileselector_install_height%" />
-				<text>Folders:</text>
+				<text>文件夹:</text>
 				<filter folders="1" files="0" />
 				<path name="tw_zip_location" default="/sdcard" />
 				<data name="select" />
@@ -208,7 +208,7 @@
 
 			<object type="button">
 				<placement x="%filemanager_select_x%" y="%filemanager_select_y%" />
-				<text>Images...</text>
+				<text>镜像包...</text>
 				<actions>
 					<action function="page">install_image</action>
 				</actions>
@@ -240,12 +240,12 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>WARNING: This operation may install incompatible software and render your device unusable.</text>
+				<text>警告: 此操作可能会刷入不兼容的ROM,使您的设备无法使用.</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>Folder:</text>
+				<text>文件夹:</text>
 			</object>
 
 			<object type="text">
@@ -255,7 +255,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row4_text_y%" placement="5" />
-				<text>File to flash:</text>
+				<text>将要刷的文件:</text>
 			</object>
 
 			<object type="text">
@@ -265,12 +265,12 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row6_text_y%" placement="5" />
-				<text>Press back to cancel adding this zip.</text>
+				<text>按返回键取消添加这个zip包.</text>
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col2_x%" y="%row7_text_y%" />
-				<text>Zip file signature verification?</text>
+				<text>Zip文件签名校验?</text>
 				<data variable="tw_signed_zip_verify" />
 			</object>
 
@@ -282,13 +282,13 @@
 			<object type="button" style="mediumwidebutton">
 				<condition var1="tw_zip_queue_count" op="!=" var2="10"></condition>
 				<placement x="%col2_x%" y="%row5_medium_y%" />
-				<text>Add More Zips</text>
+				<text>添加更多zip包</text>
 				<action function="page">install</action>
 			</object>
 
 			<object type="button" style="mediumwidebutton">
 				<placement x="%col3_x%" y="%row5_medium_y%" />
-				<text>Clear Queue</text>
+				<text>清除Zip列表</text>
 				<actions>
 					<action function="queueclear"></action>
 					<action function="page">install</action>
@@ -296,7 +296,7 @@
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Confirm Flash</text>
+				<text>滑动确认刷入</text>
 				<action function="flash">flash_zip</action>
 			</object>
 
@@ -323,7 +323,7 @@
 
 			<object type="text">
 				<placement x="%col1_x%" y="%row16_text_y%" />
-				<text>Flashing file %tw_zip_index% of %tw_zip_queue_count%</text>
+				<text>刷入文件%tw_zip_index%，共%tw_zip_queue_count%个</text>
 			</object>
 
 			<object type="text">
@@ -348,19 +348,19 @@
 				<condition var1="tw_operation_status" op="!=" var2="0" />
 				<font resource="font" color="%text_fail_color%" />
 				<placement x="%center_x%" y="%row17_text_y%" placement="5" />
-				<text>Failed</text>
+				<text>失败</text>
 			</object>
 
 			<object type="text">
 				<condition var1="tw_operation_status" var2="0" />
 				<font resource="font"  color="%text_success_color%" />
 				<placement x="%center_x%" y="%row17_text_y%" placement="5" />
-				<text>Successful</text>
+				<text>成功</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col1_x%" y="%slider_y%" />
-				<text>Wipe Cache/Dalvik</text>
+				<text>清除 Cache/Dalvik</text>
 				<actions>
 					<action function="set">tw_back=flash_done</action>
 					<action function="set">tw_action=wipe</action>
@@ -368,10 +368,10 @@
 					<action function="set">tw_has_action2=1</action>
 					<action function="set">tw_action2=wipe</action>
 					<action function="set">tw_action2_param=dalvik</action>
-					<action function="set">tw_text1=Wipe Cache &amp; Dalvik?</action>
-					<action function="set">tw_action_text1=Wiping Cache &amp; Dalvik...</action>
-					<action function="set">tw_complete_text1=Cache &amp; Dalvik Wipe Complete</action>
-					<action function="set">tw_slider_text=Swipe to Wipe</action>
+					<action function="set">tw_text1=清除Cache &amp; Dalvik?</action>
+					<action function="set">tw_action_text1=清除Cache &amp; Dalvik中...</action>
+					<action function="set">tw_complete_text1=Cache &amp; Dalvik 清除完成</action>
+					<action function="set">tw_slider_text=滑动按钮开始清除</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -382,7 +382,7 @@
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%slider_y%" />
-				<text>Home</text>
+				<text>返回主页</text>
 				<actions>
 					<action function="set">tw_clear_destination=main2</action>
 					<action function="page">clear_vars</action>
@@ -411,12 +411,12 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Select Image to Flash</text>
+				<text>选择要刷入的镜像</text>
 			</object>
 
 			<object type="button" style="fillbutton">
 				<placement x="%button_full_center_x%" y="%zipstorage_text_y%" w="%button_fill_full_width%" h="%button_fill_quarter_height%" />
-				<text>Storage: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
+				<text>存储器: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
 				<actions>
 					<action function="set">tw_back=install_image</action>
 					<action function="page">selectstorage</action>
@@ -425,7 +425,7 @@
 
 			<object type="fileselector">
 				<placement x="%fileselector_folder_x%" y="%fileselector_install_y%" w="%fileselector_folder_width%" h="%fileselector_install_height%" />
-				<text>Folders:</text>
+				<text>文件夹:</text>
 				<filter folders="1" files="0" />
 				<path name="tw_zip_location" default="/sdcard" />
 				<data name="select" />
@@ -444,7 +444,7 @@
 
 			<object type="button">
 				<placement x="%filemanager_select_x%" y="%filemanager_select_y%" />
-				<text>Zips...</text>
+				<text>Zip包...</text>
 				<actions>
 					<action function="page">install</action>
 				</actions>
@@ -473,7 +473,7 @@
 
 			<object type="partitionlist">
 				<placement x="%col2_x%" y="%row1_text_y%" w="%listbox_width%" h="%flash_list_height%" />
-				<text>Select Partition to Flash Image:</text>
+				<text>选择要刷入的分区:</text>
 				<icon selected="radio_true" unselected="radio_false" />
 				<data name="tw_flash_partition" />
 				<listtype name="flashimg" />
@@ -481,7 +481,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row8_text_y%" placement="5" />
-				<text>Folder:</text>
+				<text>目录:</text>
 			</object>
 
 			<object type="text">
@@ -491,7 +491,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row10_text_y%" placement="5" />
-				<text>File to flash:</text>
+				<text>要刷入的文件:</text>
 			</object>
 
 			<object type="text">
@@ -500,14 +500,14 @@
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Confirm Flash</text>
+				<text>滑动按钮确认刷入</text>
 				<actions>
 					<action function="set">tw_back=flashimage_confirm</action>
 					<action function="set">tw_action=flashimage</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_action_text1=Flashing Image...</action>
+					<action function="set">tw_action_text1=正在刷入镜像...</action>
 					<action function="set">tw_action_text2=</action>
-					<action function="set">tw_complete_text1=Image Flashed</action>
+					<action function="set">tw_complete_text1=镜像已刷入</action>
 					<action function="page">action_page</action>
 				</actions>
 				<action function="flashimage"></action>
@@ -579,7 +579,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row12_text_y%" placement="5" />
-				<text>Press back button to cancel.</text>
+				<text>按返回键取消.</text>
 			</object>
 
 			<object type="slider">
@@ -621,7 +621,7 @@
 			<object type="button">
 				<condition var1="tw_has_cancel" var2="1" />
 				<placement x="%col_center_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<action function="%tw_cancel_action%">%tw_cancel_param%</action>
 			</object>
 
@@ -702,14 +702,14 @@
 				<condition var1="tw_operation_status" op="!=" var2="0" />
 				<font resource="font" color="%text_fail_color%" />
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>Failed</text>
+				<text>失败</text>
 			</object>
 
 			<object type="text">
 				<condition var1="tw_operation_status" var2="0" />
 				<font resource="font" color="%text_success_color%" />
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>Successful</text>
+				<text>成功</text>
 			</object>
 
 			<object type="template" name="action_page_console" />
@@ -717,7 +717,7 @@
 			<object type="button">
 				<condition var1="tw_show_reboot" var2="0" />
 				<placement x="%col_center_x%" y="%slider_y%" />
-				<text>Back</text>
+				<text>返回</text>
 				<actions>
 					<action function="set">tw_clear_destination=%tw_back%</action>
 					<action function="page">clear_vars</action>
@@ -791,28 +791,28 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Reboot Menu</text>
+				<text>重启选单</text>
 			</object>
 
 			<object type="button" style="rebootsystem">
 				<placement x="%col1_x%" y="%row1_y%" />
-				<text>System</text>
+				<text>系统</text>
 			</object>
 
 			<object type="button">
 				<condition var1="tw_reboot_poweroff" var2="1" />
 				<placement x="%col2_x%" y="%row1_y%" />
-				<text>Power Off</text>
+				<text>关机</text>
 				<actions>
 					<action function="set">tw_back=reboot</action>
 					<action function="set">tw_action=reboot</action>
 					<action function="set">tw_action_param=poweroff</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=No OS Installed! Are you</action>
-					<action function="set">tw_text2=sure you wish to power off?</action>
-					<action function="set">tw_action_text1=Turning Off...</action>
-					<action function="set">tw_complete_text1=Turning Off...</action>
-					<action function="set">tw_slider_text=Swipe to Power Off</action>
+					<action function="set">tw_text1=未安装系统! 你</action>
+					<action function="set">tw_text2=确定想要关机么?</action>
+					<action function="set">tw_action_text1=关机中...</action>
+					<action function="set">tw_complete_text1=关机中...</action>
+					<action function="set">tw_slider_text=滑动按钮以关机</action>
 					<action function="page">rebootcheck</action>
 				</actions>
 			</object>
@@ -826,11 +826,11 @@
 					<action function="set">tw_action=reboot</action>
 					<action function="set">tw_action_param=recovery</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=No OS Installed! Are you</action>
-					<action function="set">tw_text2=sure you wish to reboot?</action>
-					<action function="set">tw_action_text1=Rebooting...</action>
-					<action function="set">tw_complete_text1=Rebooting...</action>
-					<action function="set">tw_slider_text=Swipe to Reboot</action>
+					<action function="set">tw_text1=未安装系统! 你</action>
+					<action function="set">tw_text2=确定想要重启么?</action>
+					<action function="set">tw_action_text1=重启中...</action>
+					<action function="set">tw_complete_text1=重启中...</action>
+					<action function="set">tw_slider_text=滑动按钮以重启</action>
 					<action function="page">rebootcheck</action>
 				</actions>
 			</object>
@@ -844,11 +844,11 @@
 					<action function="set">tw_action=reboot</action>
 					<action function="set">tw_action_param=bootloader</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=No OS Installed! Are you</action>
-					<action function="set">tw_text2=sure you wish to reboot?</action>
-					<action function="set">tw_action_text1=Rebooting...</action>
-					<action function="set">tw_complete_text1=Rebooting...</action>
-					<action function="set">tw_slider_text=Swipe to Reboot</action>
+					<action function="set">tw_text1=未安装系统! 你</action>
+					<action function="set">tw_text2=确定想要重启么?</action>
+					<action function="set">tw_action_text1=重启中...</action>
+					<action function="set">tw_complete_text1=重启中...</action>
+					<action function="set">tw_slider_text=滑动按钮以重启</action>
 					<action function="page">rebootcheck</action>
 				</actions>
 			</object>
@@ -862,11 +862,11 @@
 					<action function="set">tw_action=reboot</action>
 					<action function="set">tw_action_param=download</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=No OS Installed! Are you</action>
-					<action function="set">tw_text2=sure you wish to reboot?</action>
-					<action function="set">tw_action_text1=Rebooting...</action>
-					<action function="set">tw_complete_text1=Rebooting...</action>
-					<action function="set">tw_slider_text=Swipe to Reboot</action>
+					<action function="set">tw_text1=未安装系统! 你</action>
+					<action function="set">tw_text2=确定想要重启么?</action>
+					<action function="set">tw_action_text1=重启中...</action>
+					<action function="set">tw_complete_text1=重启中...</action>
+					<action function="set">tw_slider_text=滑动按钮以重启</action>
 					<action function="page">rebootcheck</action>
 				</actions>
 			</object>
@@ -889,7 +889,7 @@
 
 			<object type="partitionlist">
 				<placement x="%col2_x%" y="%fileselector_install_y%" w="%fileselector_folderonly_width%" h="%fileselector_install_height%" />
-				<text>Select Storage:</text>
+				<text>选择存储器:</text>
 				<icon selected="radio_true" unselected="radio_false" />
 				<data name="tw_storage_path" />
 				<listtype name="storage" />
@@ -897,7 +897,7 @@
 
 			<object type="button">
 				<placement x="%filemanager_select_x%" y="%row2_y%" />
-				<text>OK</text>
+				<text>确定</text>
 				<actions>
 					<action function="set">tw_clear_destination=%tw_back%</action>
 					<action function="page">clear_vars</action>
@@ -924,12 +924,12 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Mount Menu</text>
+				<text>挂载选项</text>
 			</object>
 
 			<object type="partitionlist">
 				<placement x="%backup_list_x%" y="%backup_list_y%" w="%backup_list_width%" h="%mount_list_height%" />
-				<text>Select Partitions to Mount:</text>
+				<text>选择分区挂载:</text>
 				<listtype name="mount" />
 			</object>
 
@@ -939,14 +939,14 @@
 					<condition var1="tw_is_decrypted" var2="0" />
 				</conditions>
 				<placement x="%col3_x%" y="row1_y" />
-				<text>Decrypt Data</text>
+				<text>解密数据</text>
 				<action function="page">decrypt</action>
 			</object>
 
 			<object type="button">
 				<condition var1="tw_has_usb_storage" var2="1" />
 				<placement x="%col4_x%" y="%row1_y%" />
-				<text>Mount USB Storage</text>
+				<text>挂载USB大容量存储</text>
 				<action function="page">usb_mount</action>
 			</object>
 
@@ -956,7 +956,7 @@
 					<condition var1="tw_mtp_enabled" var2="0" />
 				</conditions>
 				<placement x="%col3_x%" y="row1_y" />
-				<text>Enable MTP</text>
+				<text>打开MTP模式</text>
 				<action function="startmtp"></action>
 			</object>
 
@@ -966,7 +966,7 @@
 					<condition var1="tw_mtp_enabled" var2="1" />
 				</conditions>
 				<placement x="%col3_x%" y="row1_y" />
-				<text>Disable MTP</text>
+				<text>关闭MTP模式</text>
 				<action function="stopmtp"></action>
 			</object>
 
@@ -976,13 +976,13 @@
 					<condition var1="tw_is_decrypted" var2="0" />
 				</conditions>
 				<placement x="%col3_x%" y="row1_y" />
-				<text>Decrypt Data</text>
+				<text>解密数据</text>
 				<action function="page">decrypt</action>
 			</object>
 
 			<object type="button" style="fillbutton">
 				<placement x="%col3_x%" y="%backup_storage_y%" w="%button_fill_main_width%" h="%button_fill_half_height%" />
-				<text>Storage: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
+				<text>存储器: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
 				<actions>
 					<action function="set">tw_back=mount</action>
 					<action function="page">selectstorage</action>
@@ -990,19 +990,19 @@
 			</object>
 
 			<object type="button">
-				<placement x="%col3_x%" y="%row10_text_y%" textplacement="6" />
+				<placement x="%col3_x%" y="%row10_text_y%" />
 				<font resource="font" color="%text_color%" />
 				<condition var1="tw_mount_system_ro" op="=" var2="0" />
-				<text>Only mount system read-only</text>
+				<text>仅挂载系统为只读</text>
 				<image resource="checkbox_false" />
 				<action function="mountsystemtoggle">1</action>
 			</object>
 
 			<object type="button">
-				<placement x="%col3_x%" y="%row10_text_y%" textplacement="6" />
+				<placement x="%col3_x%" y="%row10_text_y%" />
 				<font resource="font" color="%text_color%" />
 				<condition var1="tw_mount_system_ro" op="!=" var2="0" />
-				<text>Only mount system read-only</text>
+				<text>仅挂载系统为只读</text>
 				<image resource="checkbox_true" />
 				<actions>
 					<action function="set">tw_lifetime_writes=2</action>
@@ -1028,12 +1028,12 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>USB Storage Mounted -- Be sure to safely remove your device from your computer before unmounting!</text>
+				<text>USB大容量存储已挂载,确保卸载前从你的电脑上安全移除设备!</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%row1_y%" />
-				<text>Unmount</text>
+				<text>卸载</text>
 				<action function="page">usb_umount</action>
 			</object>
 
@@ -1083,13 +1083,13 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Factory Reset: Wipes Data, Cache, and Dalvik</text>
+				<text>恢复出厂(双清)</text>
 			</object>
 
 			<object type="text">
 				<condition var1="tw_has_data_media" var2="1" />
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>(not including internal storage)</text>
+				<text>(不会清除内置存储/sdcard)</text>
 			</object>
 
 			<object type="text">
@@ -1109,19 +1109,19 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row4_text_y%" placement="5" />
-				<text>Most of the time this is the only wipe that you need.</text>
+				<text>大多数时候你只需要进行此清除操作即可.</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col2_x%" y="%wipe_button_y%" />
-				<text>Advanced Wipe</text>
+				<text>高级清除选项</text>
 				<action function="page">advancedwipe</action>
 			</object>
 
 			<object type="button">
 				<condition var1="tw_has_data_media" var2="1" />
 				<placement x="%col3_x%" y="%wipe_button_y%" />
-				<text>Format Data</text>
+				<text>格式化data分区</text>
 				<actions>
 					<action function="page">formatdata</action>
 				</actions>
@@ -1133,34 +1133,34 @@
 					<condition var1="tw_has_data_media" var2="0" />
 				</conditions>
 				<placement x="%col3_x%" y="%wipe_button_y%" />
-				<text>Wipe Encryption</text>
+				<text>清除加密</text>
 				<actions>
 					<action function="set">tw_back=wipe</action>
 					<action function="set">tw_action=wipe</action>
 					<action function="set">tw_action_param=DATAMEDIA</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=Wipe Encryption from Data?</action>
+					<action function="set">tw_text1=从data分区清除加密?</action>
 					<action function="set">tw_text2=</action>
-					<action function="set">tw_action_text1=Formatting Data...</action>
-					<action function="set">tw_complete_text1=Data Format Complete</action>
-					<action function="set">tw_slider_text=Swipe to Format Data</action>
+					<action function="set">tw_action_text1=正在格式化Data...</action>
+					<action function="set">tw_complete_text1=Data格式化完毕</action>
+					<action function="set">tw_slider_text=滑动格式化Data</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row12_text_y%" placement="5" />
-				<text>Press back button to cancel.</text>
+				<text>按返回按钮取消.</text>
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Factory Reset</text>
+				<text>滑动按钮开始执行</text>
 				<actions>
 					<action function="set">tw_back=wipe</action>
 					<action function="set">tw_action=wipe</action>
 					<action function="set">tw_action_param=data</action>
-					<action function="set">tw_action_text1=Factory Reset...</action>
-					<action function="set">tw_complete_text1=Factory Reset Complete</action>
+					<action function="set">tw_action_text1=恢复出厂设置中...</action>
+					<action function="set">tw_complete_text1=恢复完成</action>
 					<action function="page">action_page</action>
 				</actions>
 			</object>
@@ -1183,14 +1183,14 @@
 
 			<object type="partitionlist">
 				<placement x="%backup_list_x%" y="%backup_list_y%" w="%backup_list_width%" h="%backup_list_height%" />
-				<text>Select Partitions to Wipe:</text>
+				<text>选择要清除的分区:</text>
 				<data name="tw_wipe_list" />
 				<listtype name="wipe" />
 			</object>
 
 			<object type="button" style="fillbutton">
 				<placement x="%col3_x%" y="%backup_storage_y%" w="%button_fill_main_width%" h="%button_fill_half_height%" />
-				<text>Repair or Change File System</text>
+				<text>修复或者转换文件系统</text>
 				<actions>
 					<action function="checkpartitionlist"></action>
 					<action function="page">checkpartitionlist</action>
@@ -1201,18 +1201,18 @@
 				<condition var1="partitionlisterror" var2="1" />
 				<font resource="font" color="%text_fail_color%"/>
 				<placement x="%col3_x%" y="%backup_storage_y%" />
-				<text>Invalid partition selection</text>
+				<text>无效的分区</text>
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Wipe</text>
+				<text>滑动按钮清除</text>
 				<actions>
 					<action function="set">tw_back=advancedwipe</action>
 					<action function="set">tw_action=wipe</action>
 					<action function="set">tw_action_param=LIST</action>
-					<action function="set">tw_text1=Wipe Selected Partition(s)?</action>
-					<action function="set">tw_action_text1=Wiping Partition(s)...</action>
-					<action function="set">tw_complete_text1=Wipe Complete</action>
+					<action function="set">tw_text1=是否清除选择的分区?</action>
+					<action function="set">tw_action_text1=清除分区中...</action>
+					<action function="set">tw_complete_text1=清除完成</action>
 					<action function="page">action_page</action>
 				</actions>
 			</object>
@@ -1235,22 +1235,22 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Format Data will wipe all of your apps, backups, pictures,</text>
+				<text>格式化data分区将清除你安装的所有软件,</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>videos, media, and removes encryption on internal storage.</text>
+				<text>短信，通话记录，软件使用记录，以及内置存储上的安全设置等.</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row3_text_y%" placement="5" />
-				<text>This cannot be undone. Press back to cancel.</text>
+				<text>此操作后将无法恢复. 点返回按钮可取消操作.</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row4_text_y%" placement="5" />
-				<text>Type yes to continue.</text>
+				<text>输入 yes 继续.</text>
 			</object>
 
 			<object type="input">
@@ -1283,8 +1283,8 @@
 					<action function="set">tw_back=formatdata</action>
 					<action function="set">tw_action=wipe</action>
 					<action function="set">tw_action_param=DATAMEDIA</action>
-					<action function="set">tw_action_text1=Formatting Data...</action>
-					<action function="set">tw_complete_text1=Data Format Complete</action>
+					<action function="set">tw_action_text1=格式化 Data分区中...</action>
+					<action function="set">tw_complete_text1=Data分区格式化完成</action>
 					<action function="page">action_page</action>
 				</actions>
 			</object>
@@ -1320,78 +1320,78 @@
 
 			<object type="text">
 				<placement x="%col1_x%" y="%row1_text_y%" />
-				<text>Partition Options for: %tw_partition_name%</text>
+				<text>分区名: %tw_partition_name%</text>
 			</object>
 
 			<object type="text">
 				<placement x="%col_right_x%" y="%row1_text_y%" placement="1" />
-				<text>Mount Point: %tw_partition_mount_point%</text>
+				<text>挂载点: %tw_partition_mount_point%</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>Current file system: %tw_partition_file_system%</text>
+				<text>当前文件系统: %tw_partition_file_system%</text>
 			</object>
 
 			<object type="text">
 				<condition var1="tw_partition_is_present" op="!=" var2="0" />
 				<placement x="%col2_x%" y="%row3_text_y%" />
-				<text>Present: Yes</text>
+				<text>当前: 是</text>
 			</object>
 
 			<object type="text">
 				<condition var1="tw_partition_is_present" op="=" var2="0" />
 				<placement x="%col2_x%" y="%row3_text_y%" />
-				<text>Present: No</text>
+				<text>当前: 否</text>
 			</object>
 
 			<object type="text">
 				<condition var1="tw_partition_removable" op="!=" var2="0" />
 				<placement x="%col3_x%" y="%row3_text_y%" />
-				<text>Removable: Yes</text>
+				<text>可移动: 是</text>
 			</object>
 
 			<object type="text">
 				<condition var1="tw_partition_removable" op="=" var2="0" />
 				<placement x="%col3_x%" y="%row3_text_y%" />
-				<text>Removable: No</text>
+				<text>可移动: 否</text>
 			</object>
 
 			<object type="text">
 				<placement x="%col1_x%" y="%row4_text_y%" />
-				<text>Size: %tw_partition_size%MB</text>
+				<text>总容量: %tw_partition_size%MB</text>
 			</object>
 
 			<object type="text">
 				<placement x="%col2_x%" y="%row4_text_y%" />
-				<text>Used: %tw_partition_used%MB</text>
+				<text>已使用: %tw_partition_used%MB</text>
 			</object>
 
 			<object type="text">
 				<placement x="%col3_x%" y="%row4_text_y%" />
-				<text>Free: %tw_partition_free%MB</text>
+				<text>剩余容量: %tw_partition_free%MB</text>
 			</object>
 
 			<object type="text">
 				<placement x="%col4_x%" y="%row4_text_y%" />
-				<text>Backup Size: %tw_partition_backup_size%MB</text>
+				<text>备份大小 Size: %tw_partition_backup_size%MB</text>
 			</object>
 
 			<object type="button">
 				<condition var1="tw_partition_can_resize" op="=" var2="1" />
 				<placement x="%col1_x%" y="%row2_y%" />
-				<text>Resize</text>
+				<text>更改大小</text>
 				<actions>
 					<action function="set">tw_back=partitionoptions</action>
 					<action function="set">tw_action=resize</action>
 					<action function="set">tw_action_param=%tw_partition_mount_point%</action>
 					<action function="set">tw_has_action2=1</action>
 					<action function="set">tw_action2=getpartitiondetails</action>
-					<action function="set">tw_text1=Resize %tw_partition_name%?</action>
+					<action function="set">tw_text1=更改 %tw_partition_name% 分区大小?</action>
 					<action function="set">tw_text2=</action>
-					<action function="set">tw_action_text1=Resizing...</action>
-					<action function="set">tw_complete_text1=Resize Complete</action>
-					<action function="set">tw_slider_text=Swipe to Resize</action>
+					<action function="set">tw_action_text1=正在更改...</action>
+					<action function="set">tw_complete_text1=更改完成</action>
+					<action function="set">tw_slider_text=滑动以更改大小</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -1399,24 +1399,24 @@
 			<object type="button">
 				<condition var1="tw_partition_can_repair" op="=" var2="1" />
 				<placement x="%col2_x%" y="%row2_y%" />
-				<text>Repair</text>
+				<text>修复</text>
 				<actions>
 					<action function="set">tw_back=partitionoptions</action>
 					<action function="set">tw_action=repair</action>
 					<action function="set">tw_action_param=%tw_partition_mount_point%</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=Repair %tw_partition_name%?</action>
+					<action function="set">tw_text1=修复 %tw_partition_name%?</action>
 					<action function="set">tw_text2=</action>
-					<action function="set">tw_action_text1=Repairing...</action>
-					<action function="set">tw_complete_text1=Repair Complete</action>
-					<action function="set">tw_slider_text=Swipe to Repair</action>
+					<action function="set">tw_action_text1=修复中...</action>
+					<action function="set">tw_complete_text1=修复完成</action>
+					<action function="set">tw_slider_text=滑动开始修复</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
 
 			<object type="button">
 				<placement x="%col3_x%" y="%row2_y%" />
-				<text>Change File System</text>
+				<text>转换文件系统</text>
 				<action function="page">selectfilesystem</action>
 			</object>
 
@@ -1458,22 +1458,22 @@
 
 			<object type="text">
 				<placement x="%col1_x%" y="%row1_text_y%" />
-				<text>Change file system for: %tw_partition_name%</text>
+				<text>转换文件系统: %tw_partition_name%</text>
 			</object>
 
 			<object type="text">
 				<placement x="%col_right_x%" y="%row1_text_y%" placement="1" />
-				<text>Mount Point: %tw_partition_mount_point%</text>
+				<text>挂载点: %tw_partition_mount_point%</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Current file system: %tw_partition_file_system%</text>
+				<text>当前文件系统: %tw_partition_file_system%</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>Some ROMs or kernels may not support some file systems. Proceed with caution!</text>
+				<text>一些ROM或者内核可能不支持. 这些文件系统, 谨慎进行!</text>
 			</object>
 
 			<object type="button">
@@ -1486,11 +1486,11 @@
 					<action function="set">tw_action_param=%tw_partition_mount_point%</action>
 					<action function="set">tw_action_new_file_system=ext2</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=Change %tw_partition_name% to EXT2?</action>
+					<action function="set">tw_text1=转换 %tw_partition_name% 到EXT2?</action>
 					<action function="set">tw_text2=</action>
-					<action function="set">tw_action_text1=Formatting...</action>
-					<action function="set">tw_complete_text1=Format Complete</action>
-					<action function="set">tw_slider_text=Swipe to Change</action>
+					<action function="set">tw_action_text1=格式化中...</action>
+					<action function="set">tw_complete_text1=格式化完成</action>
+					<action function="set">tw_slider_text=滑动开始转换</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -1505,11 +1505,11 @@
 					<action function="set">tw_action_param=%tw_partition_mount_point%</action>
 					<action function="set">tw_action_new_file_system=ext3</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=Change %tw_partition_name% to EXT3?</action>
+					<action function="set">tw_text1=转换 %tw_partition_name% 到 EXT3?</action>
 					<action function="set">tw_text2=</action>
-					<action function="set">tw_action_text1=Formatting...</action>
-					<action function="set">tw_complete_text1=Format Complete</action>
-					<action function="set">tw_slider_text=Swipe to Change</action>
+					<action function="set">tw_action_text1=格式化中...</action>
+					<action function="set">tw_complete_text1=转换完成</action>
+					<action function="set">tw_slider_text=滑动开始转换</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -1524,11 +1524,11 @@
 					<action function="set">tw_action_param=%tw_partition_mount_point%</action>
 					<action function="set">tw_action_new_file_system=ext4</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=Change %tw_partition_name% to EXT4?</action>
+					<action function="set">tw_text1=转换 %tw_partition_name% 到 EXT4?</action>
 					<action function="set">tw_text2=</action>
-					<action function="set">tw_action_text1=Formatting...</action>
-					<action function="set">tw_complete_text1=Format Complete</action>
-					<action function="set">tw_slider_text=Swipe to Change</action>
+					<action function="set">tw_action_text1=格式化中...</action>
+					<action function="set">tw_complete_text1=格式化完成</action>
+					<action function="set">tw_slider_text=滑动开始转换</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -1543,11 +1543,11 @@
 					<action function="set">tw_action_param=%tw_partition_mount_point%</action>
 					<action function="set">tw_action_new_file_system=f2fs</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=Change %tw_partition_name% to F2FS?</action>
+					<action function="set">tw_text1=转换 %tw_partition_name% 到 F2FS?</action>
 					<action function="set">tw_text2=</action>
-					<action function="set">tw_action_text1=Formatting...</action>
-					<action function="set">tw_complete_text1=Format Complete</action>
-					<action function="set">tw_slider_text=Swipe to Change</action>
+					<action function="set">tw_action_text1=格式化中...</action>
+					<action function="set">tw_complete_text1=格式化完成</action>
+					<action function="set">tw_slider_text=滑动开始转换</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -1562,11 +1562,11 @@
 					<action function="set">tw_action_param=%tw_partition_mount_point%</action>
 					<action function="set">tw_action_new_file_system=vfat</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=Change %tw_partition_name% to FAT?</action>
+					<action function="set">tw_text1=转换 %tw_partition_name% 到 FAT?</action>
 					<action function="set">tw_text2=</action>
-					<action function="set">tw_action_text1=Formatting...</action>
-					<action function="set">tw_complete_text1=Format Complete</action>
-					<action function="set">tw_slider_text=Swipe to Change</action>
+					<action function="set">tw_action_text1=格式化中...</action>
+					<action function="set">tw_complete_text1=格式化完成</action>
+					<action function="set">tw_slider_text=滑动开始转换</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -1581,11 +1581,11 @@
 					<action function="set">tw_action_param=%tw_partition_mount_point%</action>
 					<action function="set">tw_action_new_file_system=exfat</action>
 					<action function="set">tw_has_action2=0</action>
-					<action function="set">tw_text1=Change %tw_partition_name% to exFAT?</action>
+					<action function="set">tw_text1=转换 %tw_partition_name% 到 exFAT?</action>
 					<action function="set">tw_text2=</action>
-					<action function="set">tw_action_text1=Formatting...</action>
-					<action function="set">tw_complete_text1=Format Complete</action>
-					<action function="set">tw_slider_text=Swipe to Change</action>
+					<action function="set">tw_action_text1=格式化中...</action>
+					<action function="set">tw_complete_text1=格式化完成</action>
+					<action function="set">tw_slider_text=滑动开始转换</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -1608,24 +1608,24 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Back Up Device</text>
+				<text>备份设备</text>
 			</object>
 
 			<object type="partitionlist">
 				<placement x="%backup_list_x%" y="%backup_list_y%" w="%backup_list_width%" h="%backup_list_height%" />
-				<text>Select Partitions to Back Up:</text>
+				<text>选择要备份的分区:</text>
 				<data name="tw_backup_list" />
 				<listtype name="backup" />
 			</object>
 
 			<object type="text">
 				<placement x="%col_right_x%" y="%row2_text_y%" placement="1" />
-				<text>Backup Name: %tw_backup_name%</text>
+				<text>备份名称: %tw_backup_name%</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col3_x%" y="%row1_y%" />
-				<text>Refresh Sizes</text>
+				<text>刷新分区大小</text>
 				<actions>
 					<action function="refreshsizes"></action>
 					<action function="page">backup</action>
@@ -1634,7 +1634,7 @@
 
 			<object type="button">
 				<placement x="%col4_x%" y="%row1_y%" />
-				<text>Set Backup Name</text>
+				<text>设置备份文件名</text>
 				<actions>
 					<action function="set">tw_fileexists=0</action>
 					<action function="page">backupname1</action>
@@ -1643,7 +1643,7 @@
 
 			<object type="button" style="fillbutton">
 				<placement x="%col3_x%" y="%backup_storage_y%" w="%button_fill_main_width%" h="%button_fill_half_height%" />
-				<text>Storage: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
+				<text>存储器: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
 				<actions>
 					<action function="set">tw_back=backup</action>
 					<action function="page">selectstorage</action>
@@ -1656,7 +1656,7 @@
 					<condition var1="tw_encrypt_backup" var2="0" />
 				</conditions>
 				<placement x="%col3_x%" y="%backup_encrypt_y%" w="%button_fill_main_width%" h="%button_fill_half_height%" />
-				<text>No Encryption</text>
+				<text>无加密</text>
 				<actions>
 					<action function="page">backupencryption</action>
 				</actions>
@@ -1668,7 +1668,7 @@
 					<condition var1="tw_encrypt_backup" var2="1" />
 				</conditions>
 				<placement x="%col3_x%" y="%backup_encrypt_y%" w="%button_fill_main_width%" h="%button_fill_half_height%" />
-				<text>Using Encryption</text>
+				<text>已经加密</text>
 				<actions>
 					<action function="page">backupencryption</action>
 				</actions>
@@ -1676,26 +1676,26 @@
 
 			<object type="checkbox">
 				<placement x="%col3_x%" y="%nandcheck_row6%" />
-				<text>Enable Compression (Requires more time)</text>
+				<text>启用压缩</text>
 				<data variable="tw_use_compression" />
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col3_x%" y="%nandcheck_row7%" />
-				<text>Skip MD5 generation on backups</text>
+				<text>备份时跳过生成MD5</text>
 				<data variable="tw_skip_md5_generate" />
 			</object>
 
                         <object type="checkbox">
                                 <placement x="%col3_x%" y="%nandcheck_row8%" />
                                 <font resource="font" color="%text_color%" />
-                                <text>Disable Free Space Check.</text>
+                                <text>禁用剩余空间检查.</text>
                                 <data variable="tw_disable_free_space" />
                                 <image checked="checkbox_true" unchecked="checkbox_false" />
                         </object>
 
 			<object type="slider">
-				<text>Swipe to Back Up</text>
+				<text>滑动按钮开始备份</text>
 				<actions>
 					<action function="set">tw_operation_state=0</action>
 					<action function="page">backup_run</action>
@@ -1731,7 +1731,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Please Enter a Backup Name</text>
+				<text>请输入备份的名字</text>
 			</object>
 
 			<object type="input">
@@ -1751,18 +1751,18 @@
 				<condition var1="tw_fileexists" var2="1" />
 				<placement x="%center_x%" y="%row5_text_y%" placement="5" />
 				<font resource="font" color="%text_fail_color%"/>
-				<text>A backup with that name already exists!</text>
+				<text>此备份名字已经存在!</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col2_x%" y="%cancel_button_y%" />
-				<text>Append Date</text>
+				<text>附加当前日期</text>
 				<action function="appenddatetobackupname"></action>
 			</object>
 
 			<object type="button">
 				<placement x="%col3_x%" y="%cancel_button_y%" />
-				<text>Cancel / Clear</text>
+				<text>取消</text>
 				<actions>
 					<action function="set">tw_backup_name=(Auto Generate)</action>
 					<action function="page">backup</action>
@@ -1795,7 +1795,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Encrypt your backup? Please enter a password:</text>
+				<text>是否加密备份文件? 输入备份文件密码:</text>
 			</object>
 
 			<object type="input">
@@ -1810,12 +1810,12 @@
 				<condition var1="tw_password_not_match" var2="1" />
 				<font resource="font" color="%text_fail_color%"/>
 				<placement x="%center_x%" y="%row4_text_y%" placement="5" />
-				<text>Passwords Do Not Match</text>
+				<text>密码不匹配</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<actions>
 					<action function="set">tw_encrypt_backup=0</action>
 					<action function="set">tw_backup_password=</action>
@@ -1846,7 +1846,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Encrypt your backup? Please Enter Password Again:</text>
+				<text>是否加密备份文件? 再次输入密码:</text>
 			</object>
 
 			<object type="input">
@@ -1861,7 +1861,7 @@
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<actions>
 					<action function="set">tw_encrypt_backup=0</action>
 					<action function="set">tw_backup_password=</action>
@@ -1932,7 +1932,7 @@
 
 			<object type="button" style="mediumbutton">
 				<placement x="%filemanager_select_x%" y="%filemanager_select_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<actions>
 					<action function="cancelbackup"></action>
 				</actions>
@@ -1949,7 +1949,7 @@
 				<condition var1="tw_cancel_backup" var2="0" />
 				<actions>
 					<action function="set">tw_back=backup</action>
-					<action function="set">tw_complete_text1=Backup Complete</action>
+					<action function="set">tw_complete_text1=备份完成</action>
 					<action function="set">tw_show_reboot=1</action>
 					<action function="page">action_complete</action>
 				</actions>
@@ -1960,7 +1960,7 @@
 				<condition var1="tw_cancel_backup" var2="1" />
 				<actions>
 					<action function="set">tw_back=backup</action>
-					<action function="set">tw_complete_text1=Backup Cancelled</action>
+					<action function="set">tw_complete_text1=备份已经取消</action>
 					<action function="set">tw_show_reboot=1</action>
 					<action function="page">action_complete</action>
 				</actions>
@@ -1974,7 +1974,7 @@
 
 			<object type="button" style="fillbutton">
 				<placement x="%col2_x%" y="%zipstorage_text_y%" w="%fileselector_folderonly_width%" h="%button_fill_quarter_height%" />
-				<text>Storage: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
+				<text>存储器: %tw_storage_display_name% (%tw_storage_free_size% MB)</text>
 				<actions>
 					<action function="set">tw_back=restore</action>
 					<action function="page">selectstorage</action>
@@ -1983,7 +1983,7 @@
 
 			<object type="fileselector">
 				<placement x="%col2_x%" y="%fileselector_install_y%" w="%fileselector_folderonly_width%" h="%fileselector_install_height%" />
-				<text>Select Package to Restore:</text>
+				<text>选择恢复包:</text>
 				<filter folders="1" files="0" nav="0" />
 				<path name="tw_backups_folder" />
 				<data name="tw_restore" default="" />
@@ -2035,7 +2035,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Backup encrypted. Please enter your password:</text>
+				<text>备份已加密. 请输入备份密码:</text>
 			</object>
 
 			<object type="input">
@@ -2052,12 +2052,12 @@
 				<condition var1="tw_password_fail" var2="1" />
 				<font resource="font" color="%text_fail_color%" />
 				<placement x="%center_x%" y="%row4_text_y%" placement="5" />
-				<text>Password Failed, Please Try Again</text>
+				<text>密码错误, 请重试</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col2_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<actions>
 					<action function="set">tw_page_done=1</action>
 					<action function="page">restore</action>
@@ -2066,16 +2066,16 @@
 
 			<object type="button">
 				<placement x="%col3_x%" y="%cancel_button_y%" />
-				<text>Delete</text>
+				<text>删除备份</text>
 				<actions>
 					<action function="set">tw_back=restore</action>
 					<action function="set">tw_action=cmd</action>
 					<action function="set">tw_action_param=cd %tw_backups_folder% &amp;&amp; rm -rf &quot;%tw_restore_name%&quot;</action>
-					<action function="set">tw_text1=Delete Backup? %tw_restore_name%</action>
-					<action function="set">tw_text2=This cannot be undone!</action>
-					<action function="set">tw_action_text1=Deleting Backup...</action>
-					<action function="set">tw_complete_text1=Backup Delete Complete</action>
-					<action function="set">tw_slider_text=Swipe to Delete</action>
+					<action function="set">tw_text1=是否删除备份文件? %tw_restore_name%</action>
+					<action function="set">tw_text2=注意此操作不能恢复!</action>
+					<action function="set">tw_action_text1=删除备份中...</action>
+					<action function="set">tw_complete_text1=删除备份成功</action>
+					<action function="set">tw_slider_text=滑动按钮删除</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -2100,7 +2100,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Trying Decryption with Your Password</text>
+				<text>正在验证你的密码</text>
 			</object>
 
 			<object type="template" name="action_page_console" />
@@ -2139,30 +2139,30 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Package to Restore: %tw_restore_name%</text>
+				<text>选择恢复包: %tw_restore_name%</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>Package Date: %tw_restore_file_date%</text>
+				<text>恢复包日期: %tw_restore_file_date%</text>
 			</object>
 
 			<object type="partitionlist">
 				<placement x="%backup_list_x%" y="%restore_list_y%" w="%backup_list_width%" h="%restore_list_height%" />
-				<text>Select Partitions to Restore:</text>
+				<text>选择分区还原:</text>
 				<data name="tw_restore_list" selectedlist="tw_restore_selected" />
 				<listtype name="restore" />
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col3_x%" y="%nandcheck_row6%" />
-				<text>Enable MD5 checking of backup files</text>
+				<text>打开备份文件的MD5验证</text>
 				<data variable="tw_skip_md5_check" />
 			</object>
 
 			<object type="button">
 				<placement x="%col4_x%" y="%row1_y%" />
-				<text>Rename Backup</text>
+				<text>重命名备份文件</text>
 				<actions>
 					<action function="set">tw_backup_rename=</action>
 					<action function="set">tw_fileexists=0</action>
@@ -2172,22 +2172,22 @@
 
 			<object type="button">
 				<placement x="%col3_x%" y="%row1_y%" />
-				<text>Delete Backup</text>
+				<text>删除备份文件</text>
 				<actions>
 					<action function="set">tw_back=restore</action>
 					<action function="set">tw_action=cmd</action>
 					<action function="set">tw_action_param=cd %tw_backups_folder% &amp;&amp; rm -rf &quot;%tw_restore_name%&quot;</action>
-					<action function="set">tw_text1=Delete Backup? %tw_restore_name%</action>
-					<action function="set">tw_text2=This cannot be undone!</action>
-					<action function="set">tw_action_text1=Deleting Backup...</action>
-					<action function="set">tw_complete_text1=Backup Delete Complete</action>
-					<action function="set">tw_slider_text=Swipe to Delete</action>
+					<action function="set">tw_text1=是否删除备份文件? %tw_restore_name%</action>
+					<action function="set">tw_text2=注意此操作不能恢复!</action>
+					<action function="set">tw_action_text1=删除备份中...</action>
+					<action function="set">tw_complete_text1=备份删除完成</action>
+					<action function="set">tw_slider_text=滑动按钮删除</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Restore</text>
+				<text>滑动按钮恢复分区</text>
 				<action function="page">restore_run</action>
 			</object>
 
@@ -2209,7 +2209,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Please Enter a New Backup Name</text>
+				<text>请输入新备份名</text>
 			</object>
 
 			<object type="input">
@@ -2221,11 +2221,11 @@
 					<action function="set">tw_back=restore</action>
 					<action function="set">tw_action=cmd</action>
 					<action function="set">tw_action_param=cd %tw_backups_folder% &amp;&amp; mv &quot;%tw_restore_name%&quot; &quot;%tw_backup_rename%&quot;</action>
-					<action function="set">tw_text1=Rename Backup?</action>
-					<action function="set">tw_text2=This cannot be undone!</action>
-					<action function="set">tw_action_text1=Renaming Backup...</action>
-					<action function="set">tw_complete_text1=Backup Rename Complete</action>
-					<action function="set">tw_slider_text=Swipe to Rename</action>
+					<action function="set">tw_text1=重命名备份文件?</action>
+					<action function="set">tw_text2=注意此操作不能恢复!</action>
+					<action function="set">tw_action_text1=重命名备份中...</action>
+					<action function="set">tw_complete_text1=重命名备份完成</action>
+					<action function="set">tw_slider_text=滑动按钮重命名</action>
 					<action function="set">tw_filecheck=%tw_backups_folder%/%tw_backup_rename%</action>
 					<action function="set">tw_existpage=renamebackup</action>
 					<action function="set">tw_notexistpage=confirm_action</action>
@@ -2237,12 +2237,12 @@
 				<condition var1="tw_fileexists" var2="1" />
 				<placement x="%center_x%" y="%row5_text_y%" placement="5" />
 				<font resource="font" color="%text_fail_color%" />
-				<text>A backup with that name already exists!</text>
+				<text>备份名重复!</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<action function="page">restore_select</action>
 			</object>
 
@@ -2282,7 +2282,7 @@
 				<condition var1="tw_operation_state" var2="1" />
 				<actions>
 					<action function="set">tw_back=restore_select</action>
-					<action function="set">tw_complete_text1=Restore Complete</action>
+					<action function="set">tw_complete_text1=恢复完成</action>
 					<action function="set">tw_show_reboot=1</action>
 					<action function="page">action_complete</action>
 				</actions>
@@ -2298,73 +2298,73 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Settings</text>
+				<text>功能设置</text>
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col1_x%" y="%row2_text_y%" />
-				<text>Zip file signature verification?</text>
+				<text>Zip文件签名校验?</text>
 				<data variable="tw_signed_zip_verify" />>
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col1_x%" y="%row3_text_y%" />
-				<text>Use rm -rf instead of formatting?</text>
+				<text>使用删除命令(rm -rf)代替格式化?</text>
 				<data variable="tw_rm_rf" />
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col1_x%" y="%row4_text_y%" />
-				<text>Skip MD5 generation on backups</text>
+				<text>备份时不生成MD5</text>
 				<data variable="tw_skip_md5_generate" />
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col1_x%" y="%row5_text_y%" />
-				<text>Enable MD5 checking of backup files</text>
+				<text>启用备份文件的MD5校验</text>
 				<data variable="tw_skip_md5_check" />
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col1_x%" y="%row6_text_y%" />
-				<text>Use 24-hour clock</text>
+				<text>使用24小时制显示时间</text>
 				<data variable="tw_military_time" />
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col1_x%" y="%row7_text_y%" />
-				<text>Simulate most actions for theme testing</text>
+				<text>主题测试时的模拟操作</text>
 				<data variable="tw_simulate_actions" />
 			</object>
 
 			<object type="checkbox">
 				<condition var1="tw_simulate_actions" var2="1" />
 				<placement x="%col1_x%" y="%row8_text_y%" />
-				<text>Simulate failure for actions</text>
+				<text>模拟失败的操作</text>
 				<data variable="tw_simulate_fail" />
 			</object>
 
 			<object type="button">
 				<placement x="%col1_x%" y="%row2_y%" />
-				<text>Time Zone</text>
+				<text>设置时区</text>
 				<action function="page">timezone</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col2_x%" y="%row2_y%" />
-				<text>Restore Defaults</text>
+				<text>恢复默认设置</text>
 				<action function="restoredefaultsettings"></action>
 			</object>
 
 			<object type="button">
 				<placement x="%col3_x%" y="%row2_y%" />
-				<text>Vibration Duration</text>
+				<text>振动强度</text>
 				<action function="page">Vibrate</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col4_x%" y="%row2_y%" />
-				<text>Screen</text>
+				<text>屏幕设置</text>
 				<action function="page">screen</action>
 			</object>
 
@@ -2386,84 +2386,84 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Select Time Zone</text>
+				<text>选择时区</text>
 			</object>
 
 			<object type="listbox" style="scrolllist">
 				<placement x="%listbox_x%" y="%listbox_y%" w="%listbox_width%" h="%listbox_tz_height%" />
-				<text>Select Time Zone:</text>
+				<text>选择时区:</text>
 				<icon selected="radio_true" unselected="radio_false" />
 				<data name="tw_time_zone_guisel" />
-				<listitem name="(UTC -11) Samoa, Midway Island">BST11;BDT</listitem>
-				<listitem name="(UTC -10) Hawaii">HST10;HDT</listitem>
-				<listitem name="(UTC -9) Alaska">AST9;ADT</listitem>
-				<listitem name="(UTC -8) Pacific Time">PST8;PDT,M3.2.0,M11.1.0</listitem>
-				<listitem name="(UTC -7) Mountain Time">MST7;MDT,M3.2.0,M11.1.0</listitem>
-				<listitem name="(UTC -6) Central Time">CST6;CDT,M3.2.0,M11.1.0</listitem>
-				<listitem name="(UTC -5) Eastern Time">EST5;EDT,M3.2.0,M11.1.0</listitem>
-				<listitem name="(UTC -4) Atlantic Time">AST4;ADT</listitem>
-				<listitem name="(UTC -3) Brazil, Buenos Aires">GRNLNDST3;GRNLNDDT</listitem>
-				<listitem name="(UTC -2) Mid-Atlantic">FALKST2;FALKDT</listitem>
-				<listitem name="(UTC -1) Azores, Cape Verde">AZOREST1;AZOREDT</listitem>
-				<listitem name="(UTC  0) London, Dublin, Lisbon">GMT0;BST,M3.5.0,M10.5.0</listitem>
-				<listitem name="(UTC +1) Berlin, Brussels, Paris">CET-1;CEST,M3.5.0,M10.5.0</listitem>
-				<listitem name="(UTC +2) Athens, Istanbul, South Africa">WET-2;WET,M3.5.0,M10.5.0</listitem>
-				<listitem name="(UTC +3) Moscow, Baghdad">SAUST-3;SAUDT</listitem>
-				<listitem name="(UTC +4) Abu Dhabi, Tbilisi, Muscat">WST-4;WDT</listitem>
-				<listitem name="(UTC +5) Yekaterinburg, Islamabad">PAKST-5;PAKDT</listitem>
-				<listitem name="(UTC +6) Almaty, Dhaka, Colombo">TASHST-6;TASHDT</listitem>
-				<listitem name="(UTC +7) Bangkok, Hanoi, Jakarta">THAIST-7;THAIDT</listitem>
-				<listitem name="(UTC +8) Beijing, Singapore, Hong Kong">TAIST-8;TAIDT</listitem>
-				<listitem name="(UTC +9) Tokyo, Seoul, Yakutsk">JST-9;JSTDT</listitem>
-				<listitem name="(UTC +10) Eastern Australia, Guam">EET-10;EETDT</listitem>
-				<listitem name="(UTC +11) Vladivostok, Solomon Islands">MET-11;METDT</listitem>
-				<listitem name="(UTC +12) Auckland, Wellington, Fiji">NZST-12;NZDT</listitem>
+				<listitem name="(UTC -11) 美属萨摩亚, 中途岛">BST11;BDT</listitem>
+				<listitem name="(UTC -10) 夏威夷">HST10;HDT</listitem>
+				<listitem name="(UTC  -9) 阿拉斯加">AST9;ADT</listitem>
+				<listitem name="(UTC  -8) 太平洋标准时间">PST8;PDT,M3.2.0,M11.1.0</listitem>
+				<listitem name="(UTC  -7) 北美山区标准时间">MST7;MDT,M3.2.0,M11.1.0</listitem>
+				<listitem name="(UTC  -6) 北美中部标准时间">CST6;CDT,M3.2.0,M11.1.0</listitem>
+				<listitem name="(UTC  -5) 北美东部标准时间">EST5;EDT,M3.2.0,M11.1.0</listitem>
+				<listitem name="(UTC  -4) 大西洋标准时间">AST4;ADT</listitem>
+				<listitem name="(UTC  -3) 巴西, 阿根廷(布宜诺斯)">GRNLNDST3;GRNLNDDT</listitem>
+				<listitem name="(UTC  -2) 中大西洋">FALKST2;FALKDT</listitem>
+				<listitem name="(UTC  -1) 葡萄牙(亚速尔群岛), 佛得角">AZOREST1;AZOREDT</listitem>
+				<listitem name="(UTC   0) 伦敦, 都柏林, 里斯本">GMT0;BST,M3.5.0,M10.5.0</listitem>
+				<listitem name="(UTC  +1) 柏林, 布鲁塞尔, 巴黎">CET-1;CEST,M3.5.0,M10.5.0</listitem>
+				<listitem name="(UTC  +2) 雅典, 伊斯坦布尔, 南非">WET-2;WET,M3.5.0,M10.5.0</listitem>
+				<listitem name="(UTC  +3) 莫斯科, 巴格达">SAUST-3;SAUDT</listitem>
+				<listitem name="(UTC  +4) 阿布扎比, 第比利斯, 马斯喀特">WST-4;WDT</listitem>
+				<listitem name="(UTC  +5) 叶卡捷琳堡, 伊斯兰堡">PAKST-5;PAKDT</listitem>
+				<listitem name="(UTC  +6) 阿拉木图, 达卡, 科伦坡">TASHST-6;TASHDT</listitem>
+				<listitem name="(UTC  +7) 曼谷, 河内, 雅加达">THAIST-7;THAIDT</listitem>
+				<listitem name="(UTC  +8) 北京, 新加坡, 香港">TAIST-8;TAIDT</listitem>
+				<listitem name="(UTC  +9) 东京, 首尔, 雅库茨克">JST-9;JSTDT</listitem>
+				<listitem name="(UTC +10) 澳大利亚东部, 关岛">EET-10;EETDT</listitem>
+				<listitem name="(UTC +11) 符拉迪沃斯托克, 索罗门群岛">MET-11;METDT</listitem>
+				<listitem name="(UTC +12) 奥克兰, 惠灵顿, 斐济">NZST-12;NZDT</listitem>
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col1_medium_x%" y="%row11_text_y%" />
-				<text>Do you use daylight savings time (DST)?</text>
+				<text>是否使用夏令时(DST)?</text>
 				<data variable="tw_time_zone_guidst" />
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row13_text_y%" placement="5" />
-				<text>Offset (usually 0): %tw_time_zone_guioffset%</text>
+				<text>时间偏差(常用0): %tw_time_zone_guioffset%</text>
 			</object>
 
 			<object type="button" style="mediumbutton">
 				<placement x="%col1_medium_x%" y="%row_offsetmedium_y%" />
-				<text>0</text>
+				<text>无</text>
 				<action function="set">tw_time_zone_guioffset=0</action>
 			</object>
 
 			<object type="button" style="mediumbutton">
 				<placement x="%col2_medium_x%" y="%row_offsetmedium_y%" />
-				<text>15</text>
+				<text>15分</text>
 				<action function="set">tw_time_zone_guioffset=15</action>
 			</object>
 
 			<object type="button" style="mediumbutton">
 				<placement x="%col3_medium_x%" y="%row_offsetmedium_y%" />
-				<text>30</text>
+				<text>30分</text>
 				<action function="set">tw_time_zone_guioffset=30</action>
 			</object>
 
 			<object type="button" style="mediumbutton">
 				<placement x="%col4_medium_x%" y="%row_offsetmedium_y%" />
-				<text>45</text>
+				<text>45分</text>
 				<action function="set">tw_time_zone_guioffset=45</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col4_x%" y="%row2_y%" />
-				<text>Set Time Zone</text>
+				<text>设置时区</text>
 				<action function="setguitimezone"></action>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row17_text_y%" placement="5" />
-				<text>Current Time Zone: %tw_time_zone%</text>
+				<text>当前时区: %tw_time_zone%</text>
 			</object>
 
 			<object type="action">
@@ -2484,23 +2484,23 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Screen Settings</text>
+				<text>屏幕设置</text>
 			</object>
 
 			<object type="button">
-				<placement x="%slidervalue_x%" y="%row3_text_y%" textplacement="6" />
+				<placement x="%slidervalue_x%" y="%row3_text_y%" />
 				<condition var1="tw_screen_timeout_secs" op="=" var2="0" />
 				<condition var1="tw_no_screen_timeout" op="!=" var2="1" />
-				<text>Enable screen timeout.</text>
+				<text>启用屏幕超时.</text>
 				<image resource="checkbox_false" />
 				<action function="set">tw_screen_timeout_secs=60</action>
 			</object>
 
 			<object type="button">
-				<placement x="%slidervalue_x%" y="%row3_text_y%" textplacement="6" />
+				<placement x="%slidervalue_x%" y="%row3_text_y%" />
 				<condition var1="tw_screen_timeout_secs" op="!=" var2="0" />
 				<condition var1="tw_no_screen_timeout" op="!=" var2="1" />
-				<text>Enable screen timeout.</text>
+				<text>启用屏幕超时.</text>
 				<image resource="checkbox_true" />
 				<action function="set">tw_screen_timeout_secs=0</action>
 			</object>
@@ -2511,14 +2511,14 @@
 					<condition var1="tw_no_screen_timeout" op="!=" var2="1" />
 				</conditions>
 				<placement x="slidervalue_x" y="%row5_text_y%" w="%slidervalue_w%" />
-				<text>Screen timeout in seconds:</text>
+				<text>屏幕超时时间(秒):</text>
 				<data variable="tw_screen_timeout_secs" min="15" max="300" />
 			</object>
 
 			<object type="slidervalue">
 				<condition var1="tw_has_brightnesss_file" var2="1" />
 				<placement x="slidervalue_x" y="%row12_text_y%" w="%slidervalue_w%" />
-				<text>Brightness: %tw_brightness_pct%%</text>
+				<text>亮度: %tw_brightness_pct%%</text>
 				<data variable="tw_brightness_pct" min="10" max="100" />
 				<actions>
 					<action function="set">tw_brightness=%tw_brightness_max%</action>
@@ -2546,26 +2546,26 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Vibration Settings :</text>
+				<text>振动设置:</text>
 			</object>
 
 			<object type="slidervalue">
 				<placement x="slidervalue_x" y="%row3_text_y%" w="%slidervalue_w%" />
-				<text>Button Vibration:</text>
+				<text>按钮振动强度:</text>
 				<data variable="tw_button_vibrate" min="0" max="300" />
 				<colors line="%slidervalue_line_clr%" slider="%slidervalue_slider_clr%" />
 			</object>
 
 			<object type="slidervalue">
 				<placement x="slidervalue_x" y="%row7_text_y%" w="%slidervalue_w%" />
-				<text>Keyboard Vibration:</text>
+				<text>键盘振动强度:</text>
 				<data variable="tw_keyboard_vibrate" min="0" max="300" />
 				<colors line="%slidervalue_line_clr%" slider="%slidervalue_slider_clr%" />
 			</object>
 
 			<object type="slidervalue">
 				<placement x="slidervalue_x" y="%row11_text_y%" w="%slidervalue_w%" />
-				<text>Action Vibration:</text>
+				<text>操作振动强度:</text>
 				<data variable="tw_action_vibrate" min="0" max="500" />
 				<colors line="%slidervalue_line_clr%" slider="%slidervalue_slider_clr%" />
 			</object>
@@ -2588,57 +2588,57 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Advanced</text>
+				<text>高级功能</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col1_x%" y="%row1_y%" />
-				<text>Copy Log to SD</text>
+				<text>复制Log到SD卡</text>
 				<actions>
 					<action function="set">tw_back=advanced</action>
 					<action function="set">tw_action=copylog</action>
-					<action function="set">tw_text1=Copy Log to SD Card?</action>
-					<action function="set">tw_action_text1=Copying Log to SD Card...</action>
-					<action function="set">tw_complete_text1=Log Copy Complete</action>
-					<action function="set">tw_slider_text=Swipe to Confirm</action>
+					<action function="set">tw_text1=确定复制Log到SD卡?</action>
+					<action function="set">tw_action_text1=复制Log到SD卡中...</action>
+					<action function="set">tw_complete_text1=Log复制完成</action>
+					<action function="set">tw_slider_text=滑动按钮以确认</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
 
 			<object type="button">
 				<placement x="%col2_x%" y="%row1_y%" />
-				<text>Fix Permissions</text>
+				<text>修复权限(慎用)</text>
 				<action function="page">fixperms</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col3_x%" y="%row1_y%" />
-				<text>Terminal Command</text>
+				<text>终端命令行</text>
 				<action function="page">terminalfolder</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col4_x%" y="%row1_y%" />
-				<text>ADB Sideload</text>
+				<text>ADB线刷Sideload</text>
 				<action function="page">sideload</action>
 			</object>
 
 			<object type="button">
 				<condition var1="tw_allow_partition_sdcard" var2="1" />
 				<placement x="%col1_x%" y="%row2_y%" />
-				<text>Partition SD Card</text>
+				<text>SD卡分区</text>
 				<action function="page">partsdcard</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col2_x%" y="%row2_y%" />
-				<text>File Manager</text>
+				<text>文件管理器</text>
 				<action function="page">filemanagerlist</action>
 			</object>
 
 			<object type="button">
 				<placement x="%col3_x%" y="%row2_y%" />
-				<text>Reload Theme</text>
+				<text>重载主题</text>
 				<action function="reload"></action>
 			</object>
 
@@ -2667,7 +2667,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Partition SD Card</text>
+				<text>SD卡分区</text>
 			</object>
 
 			<object type="button">
@@ -2686,7 +2686,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row_extsize_y%" placement="5" />
-				<text>EXT Size: %tw_sdext_size%</text>
+				<text>EXT大小: %tw_sdext_size%</text>
 			</object>
 
 			<object type="button">
@@ -2705,12 +2705,12 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row_swapsize_y%" placement="5" />
-				<text>Swap Size: %tw_swap_size%</text>
+				<text>Swap大小: %tw_swap_size%</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row8_text_y%" placement="5" />
-				<text>File system: %tw_sdpart_file_system%</text>
+				<text>文件系统: %tw_sdpart_file_system%</text>
 			</object>
 
 			<object type="button" style="mediumbutton">
@@ -2728,25 +2728,25 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row12_text_y%" placement="5" />
-				<text>You will lose all files on your SD card!</text>
+				<text>SD卡上所有文件将被清除!</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row13_text_y%" placement="5" />
-				<text>This action cannot be undone!</text>
+				<text>此操作无法恢复!</text>
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Confirm Partition</text>
+				<text>滑动按钮确认分区</text>
 				<actions>
 					<action function="set">tw_back=partsdcard</action>
 					<action function="set">tw_action=partitionsd</action>
 					<action function="set">tw_has_action2=1</action>
 					<action function="set">tw_action2=set</action>
 					<action function="set">tw_action2_param=tw_zip_location=/sdcard</action>
-					<action function="set">tw_action_text1=Partitioning SD Card...</action>
-					<action function="set">tw_action_text2=This will take a few minutes.</action>
-					<action function="set">tw_complete_text1=Partitioning Complete</action>
+					<action function="set">tw_action_text1=分区SD卡...</action>
+					<action function="set">tw_action_text2=这将需要几分钟.</action>
+					<action function="set">tw_complete_text1=分区完成</action>
 					<action function="page">action_page</action>
 				</actions>
 			</object>
@@ -2775,42 +2775,42 @@
 
 			<object type="button">
 				<placement x="%col1_x%" y="%row1_y%" />
-				<text>Restore Original Boot</text>
+				<text>恢复初始内核分区</text>
 				<actions>
 					<action function="set">tw_back=htcdumlock</action>
 					<action function="set">tw_action=htcdumlockrestoreboot</action>
-					<action function="set">tw_text1=Restore original boot image?</action>
-					<action function="set">tw_action_text1=Restoring Original Boot...</action>
-					<action function="set">tw_complete_text1=Restore Original Boot Complete</action>
-					<action function="set">tw_slider_text=Swipe to Confirm</action>
+					<action function="set">tw_text1=恢复初始内核Boot镜像?</action>
+					<action function="set">tw_action_text1=恢复初始Boot中...</action>
+					<action function="set">tw_complete_text1=恢复初始Boot完成</action>
+					<action function="set">tw_slider_text=滑动按钮以确认</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
 
 			<object type="button">
 				<placement x="%col2_x%" y="%row1_y%" />
-				<text>Reflash Recovery->Boot</text>
+				<text>重刷Recovery</text>
 				<actions>
 					<action function="set">tw_back=htcdumlock</action>
 					<action function="set">tw_action=htcdumlockreflashrecovery</action>
-					<action function="set">tw_text1=Reflash recovery to boot?</action>
-					<action function="set">tw_action_text1=Flashing recovery to boot...</action>
-					<action function="set">tw_complete_text1=Recovery Flash to Boot Complete</action>
-					<action function="set">tw_slider_text=Swipe to Confirm</action>
+					<action function="set">tw_text1=重刷recovery到boot?</action>
+					<action function="set">tw_action_text1=重刷recovery到boot中...</action>
+					<action function="set">tw_complete_text1=重刷recovery到boot完成</action>
+					<action function="set">tw_slider_text=滑动按钮以确认</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
 
 			<object type="button">
 				<placement x="%col1_x%" y="%row2_y%" />
-				<text>Install HTC Dumlock</text>
+				<text>安装 HTC Dumlock</text>
 				<actions>
 					<action function="set">tw_back=htcdumlock</action>
 					<action function="set">tw_action=installhtcdumlock</action>
-					<action function="set">tw_text1=Install HTC dumlock files to ROM?</action>
-					<action function="set">tw_action_text1=Installing HTC Dumlock...</action>
-					<action function="set">tw_complete_text1=HTC Dumlock Install Complete</action>
-					<action function="set">tw_slider_text=Swipe to Confirm</action>
+					<action function="set">tw_text1=安装 HTC dumlock 文件到 ROM?</action>
+					<action function="set">tw_action_text1=安装HTC Dumlock中...</action>
+					<action function="set">tw_complete_text1=HTC Dumlock安装完成</action>
+					<action function="set">tw_slider_text=滑动按钮以确认</action>
 					<action function="page">confirm_action</action>
 				</actions>
 			</object>
@@ -2837,7 +2837,7 @@
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Unlock</text>
+				<text>滑动按钮来解锁</text>
 				<action function="overlay"></action>
 			</object>
 		</page>
@@ -2848,12 +2848,12 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5"/>
-				<text>File Manager: Select a File or Folder</text>
+				<text>文件浏览: 选择文件或者文件夹</text>
 			</object>
 
 			<object type="fileselector">
 				<placement x="%fileselector_folder_x%" y="%fileselector_install_y%" w="%fileselector_folder_width%" h="%fileselector_install_height%" />
-				<text>Folders:</text>
+				<text>文件夹:</text>
 				<filter folders="1" files="0" />
 				<path name="tw_file_location1" default="/sdcard" />
 				<data name="select" />
@@ -2897,7 +2897,7 @@
 
 			<object type="button">
 				<placement x="%filemanager_select_x%" y="%filemanager_select_y%" />
-				<text>Select Folder</text>
+				<text>选择</text>
 				<actions>
 					<action function="set">tw_filename1=tw_file_location1</action>
 					<action function="set">tw_fm_isfolder=1</action>
@@ -2914,7 +2914,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5"/>
-				<text>%tw_fm_type% Selected:</text>
+				<text>已选择%tw_fm_type%:</text>
 			</object>
 
 			<object type="text">
@@ -2925,10 +2925,10 @@
 			<object type="button">
 				<condition var1="tw_fm_isfolder" var2="0" />
 				<placement x="%col1_x%" y="%row2_y%" />
-				<text>Copy File</text>
+				<text>复制文件</text>
 				<actions>
 					<action function="set">tw_filemanager_command=cp</action>
-					<action function="set">tw_fm_text1=Copying</action>
+					<action function="set">tw_fm_text1=复制</action>
 					<action function="page">choosedestinationfolder</action>
 				</actions>
 			</object>
@@ -2936,20 +2936,20 @@
 			<object type="button">
 				<condition var1="tw_fm_isfolder" var2="1" />
 				<placement x="%col1_x%" y="%row2_y%" />
-				<text>Copy Folder</text>
+				<text>复制文件夹</text>
 				<actions>
 					<action function="set">tw_filemanager_command=cd &quot;%tw_file_location1%&quot; &amp;&amp; cd .. &amp;&amp; cp -R</action>
-					<action function="set">tw_fm_text1=Copying</action>
+					<action function="set">tw_fm_text1=复制</action>
 					<action function="page">choosedestinationfolder</action>
 				</actions>
 			</object>
 
 			<object type="button">
 				<placement x="%col2_x%" y="%row2_y%" />
-				<text>Move</text>
+				<text>移动</text>
 				<actions>
 					<action function="set">tw_filemanager_command=mv</action>
-					<action function="set">tw_fm_text1=Moving</action>
+					<action function="set">tw_fm_text1=移动中</action>
 					<action function="page">choosedestinationfolder</action>
 				</actions>
 			</object>
@@ -2970,7 +2970,7 @@
 
 			<object type="button">
 				<placement x="%col4_x%" y="%row2_y%" />
-				<text>chmod</text>
+				<text>修改权限</text>
 				<actions>
 					<action function="set">tw_filemanager_rename=0000</action>
 					<action function="set">tw_fm_text2=</action>
@@ -2983,10 +2983,10 @@
 
 			<object type="button">
 				<placement x="%col1_x%" y="%row1_y%" />
-				<text>Delete</text>
+				<text>删除</text>
 				<actions>
 					<action function="set">tw_filemanager_command=rm -rf</action>
-					<action function="set">tw_fm_text1=Deleting</action>
+					<action function="set">tw_fm_text1=删除中</action>
 					<action function="set">tw_fm_text2=</action>
 					<action function="set">tw_fm_text3=</action>
 					<action function="set">tw_include_text3=0</action>
@@ -2998,10 +2998,10 @@
 			<object type="button">
 				<condition var1="tw_fm_isfolder" var2="0" />
 				<placement x="%col4_x%" y="%row1_y%" />
-				<text>Rename File</text>
+				<text>重命名文件</text>
 				<actions>
 					<action function="set">tw_filemanager_rename=tw_selection1</action>
-					<action function="set">tw_fm_text1=Renaming</action>
+					<action function="set">tw_fm_text1=重命名中</action>
 					<action function="set">tw_filemanager_command=mv</action>
 					<action function="page">filemanagerrenamefile</action>
 				</actions>
@@ -3010,10 +3010,10 @@
 			<object type="button">
 				<condition var1="tw_fm_isfolder" var2="1" />
 				<placement x="%col4_x%" y="%row1_y%" />
-				<text>Rename Folder</text>
+				<text>重命名文件夹</text>
 				<actions>
 					<action function="set">tw_filemanager_rename=tw_selection1</action>
-					<action function="set">tw_fm_text1=Renaming</action>
+					<action function="set">tw_fm_text1=重命名中</action>
 					<action function="set">tw_filemanager_command=cd &quot;%tw_file_location1%&quot; &amp;&amp; cd .. &amp;&amp; mv</action>
 					<action function="page">filemanagerrenamefolder</action>
 				</actions>
@@ -3037,7 +3037,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5"/>
-				<text>Browse to Destination Folder &amp; Press Select</text>
+				<text>选择目标文件夹 &amp; 按选择按钮</text>
 			</object>
 
 			<object type="fileselector">
@@ -3063,7 +3063,7 @@
 
 			<object type="button">
 				<placement x="%filemanager_select_x%" y="%filemanager_select_y%" />
-				<text>Select Folder</text>
+				<text>选择</text>
 				<actions>
 					<action function="set">tw_fm_text2=to</action>
 					<action function="set">tw_fm_text3=%tw_file_location2%</action>
@@ -3082,7 +3082,7 @@
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
 				<font resource="font" color="%text_color%" />
-				<text>Please Enter a New %tw_fm_type% Name</text>
+				<text>请输入新的 %tw_fm_type% 名字</text>
 			</object>
 
 			<object type="input">
@@ -3101,7 +3101,7 @@
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<action function="page">filemanageroptions</action>
 			</object>
 
@@ -3125,7 +3125,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Please Enter a New %tw_fm_type% Name</text>
+				<text>请输入新的 %tw_fm_type% 名字</text>
 			</object>
 
 			<object type="input">
@@ -3144,7 +3144,7 @@
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<action function="page">filemanageroptions</action>
 			</object>
 
@@ -3168,7 +3168,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Please Enter New Permissions</text>
+				<text>请输入新的权限</text>
 			</object>
 
 			<object type="input">
@@ -3186,7 +3186,7 @@
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<action function="page">filemanageroptions</action>
 			</object>
 
@@ -3230,7 +3230,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row10_text_y%" placement="5"/>
-				<text>Press back button to cancel.</text>
+				<text>按返回按钮取消.</text>
 			</object>
 
 			<object type="slider">
@@ -3269,7 +3269,7 @@
 				</conditions>
 				<actions>
 					<action function="set">tw_back=filemanagerlist</action>
-					<action function="set">tw_complete_text1=File Operation Complete</action>
+					<action function="set">tw_complete_text1=文件操作完成</action>
 					<action function="page">action_complete</action>
 				</actions>
 			</object>
@@ -3280,7 +3280,7 @@
 					<condition var1="tw_operation_status" op="!=" var2="0" />
 				</conditions>
 				<actions>
-					<action function="set">tw_complete_text1=File Operation Complete</action>
+					<action function="set">tw_complete_text1=文件操作完成</action>
 					<action function="page">action_complete</action>
 				</actions>
 			</object>
@@ -3310,7 +3310,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Please Enter Your Password</text>
+				<text>请输入密码</text>
 			</object>
 
 			<object type="input">
@@ -3327,12 +3327,12 @@
 				<condition var1="tw_password_fail" var2="1" />
 				<font resource="font" color="%text_fail_color%" />
 				<placement x="%center_x%" y="%row4_text_y%" placement="5" />
-				<text>Password Failed, Please Try Again</text>
+				<text>密码错误，请重新输入!</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<actions>
 					<action function="set">tw_page_done=1</action>
 					<action function="page">main</action>
@@ -3349,14 +3349,14 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Please Enter Your Pattern</text>
+				<text>请输入你的模式</text>
 			</object>
 
 			<object type="text">
 				<condition var1="tw_password_fail" var2="1" />
 				<font resource="font" color="%text_fail_color%" />
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>Pattern Failed, Please Try Again</text>
+				<text>模式失败，请再试一次</text>
 			</object>
 
 			<object type="patternpassword">
@@ -3369,7 +3369,7 @@
 
 			<object type="button">
 				<placement x="%col4_x%" y="%cancel_button_y%" />
-				<text>Cancel</text>
+				<text>取消</text>
 				<actions>
 					<action function="set">tw_page_done=1</action>
 					<action function="page">main</action>
@@ -3384,7 +3384,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Trying Decryption with Your Password</text>
+				<text>尝试用你的密码解密</text>
 			</object>
 
 			<object type="template" name="action_page_console" />
@@ -3423,7 +3423,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5"/>
-				<text>Browse to Starting Folder</text>
+				<text>浏览运行文件夹</text>
 			</object>
 
 			<object type="fileselector">
@@ -3449,7 +3449,7 @@
 
 			<object type="button">
 				<placement x="%filemanager_select_x%" y="%filemanager_select_y%" />
-				<text>Select Folder</text>
+				<text>选择</text>
 				<actions>
 					<action function="page">terminalcommand</action>
 				</actions>
@@ -3467,7 +3467,7 @@
 
 			<object type="text">
 				<placement x="%input_x%" y="%terminal_text_y%" placement="0" />
-				<text>Starting Path: %tw_terminal_location%</text>
+				<text>运行路径: %tw_terminal_location%</text>
 			</object>
 
 			<object type="input">
@@ -3531,7 +3531,7 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5"/>
-				<text>ADB Sideload</text>
+				<text>ADB sideload 线刷模式</text>
 			</object>
 
 			<object type="checkbox">
@@ -3542,18 +3542,18 @@
 
 			<object type="checkbox">
 				<placement x="%col1_x%" y="%row4_text_y%" />
-				<text>Wipe Cache.</text>
+				<text>清除Cache.</text>
 				<data variable="tw_wipe_cache" />
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Start Sideload</text>
+				<text>滑动开始Sideload</text>
 				<actions>
 					<action function="set">tw_back=advanced</action>
 					<action function="set">tw_action=adbsideload</action>
-					<action function="set">tw_action_text1=ADB Sideload</action>
-					<action function="set">tw_action_text2=Usage: adb sideload filename.zip</action>
-					<action function="set">tw_complete_text1=ADB Sideload Complete</action>
+					<action function="set">tw_action_text1=线刷模式</action>
+					<action function="set">tw_action_text2=使用方法: adb sideload xxxx(刷机包文件名).zip</action>
+					<action function="set">tw_complete_text1=ADB sideload 线刷完成</action>
 					<action function="set">tw_has_cancel=1</action>
 					<action function="set">tw_show_reboot=1</action>
 					<action function="set">tw_cancel_action=adbsideloadcancel</action>
@@ -3579,33 +3579,33 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5"/>
-				<text>Fix Permissions</text>
+				<text>修复权限</text>
 			</object>
 
 			<object type="text">
 				<placement x="%col2_x%" y="%row2_text_y%" />
-				<text>Note: Fixing permissions is rarely needed.</text>
+				<text>注意: 很少需要修复权限.</text>
 			</object>
 
 			<object type="checkbox">
 				<placement x="%col2_x%" y="%row3_text_y%" />
-				<text>Also fix SELinux contexts</text>
+				<text>修复SELinux contexts</text>
 				<data variable="tw_fixperms_restorecon" />
 			</object>
 
 			<object type="text">
 				<placement x="%col2_x%" y="%row4_text_y%" />
-				<text>Fixing SELinux contexts may cause your device to not boot properly.</text>
+				<text>修复SELinux contexts可能导致你的设备不能正常启动.</text>
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Fix Permissions</text>
+				<text>滑动按钮修复权限</text>
 				<actions>
 					<action function="set">tw_back=advanced</action>
 					<action function="set">tw_action=fixpermissions</action>
-					<action function="set">tw_action_text1=Fixing Permissions...</action>
-					<action function="set">tw_complete_text1=Fix Permissions Complete</action>
-					<action function="set">tw_slider_text=Swipe to Confirm</action>
+					<action function="set">tw_action_text1=修复权限中...</action>
+					<action function="set">tw_complete_text1=修复权限完毕</action>
+					<action function="set">tw_slider_text=滑动按钮确认</action>
 					<action function="set">tw_show_reboot=1</action>
 					<action function="page">action_page</action>
 				</actions>
@@ -3629,30 +3629,30 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5"/>
-				<text>Install SuperSU?</text>
+				<text>是否安装SuperSU (root)?</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row2_text_y%" placement="5"/>
-				<text>Your device does not appear to be rooted.</text>
+				<text>系统没有root.</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row3_text_y%" placement="5"/>
-				<text>Install SuperSU now? This will root your device.</text>
+				<text>是否安装SuperSU(root)? 将对你的手机进行root操作.</text>
 			</object>
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%row2_medium_y%" />
-				<text>Do Not Install</text>
+				<text>不安装</text>
 				<action function="set">tw_page_done=1</action>
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Install</text>
+				<text>滑动按钮修复root</text>
 				<actions>
 					<action function="set">tw_action=installsu</action>
-					<action function="set">tw_action_text1=Installing SuperSU</action>
+					<action function="set">tw_action_text1=安装SuperSU(root)中</action>
 					<action function="set">tw_action_text2=</action>
 					<action function="page">singleaction_page</action>
 				</actions>
@@ -3664,34 +3664,34 @@
 
 			<object type="text">
 				<placement x="%center_x%" y="%row1_text_y%" placement="5" />
-				<text>Keep System Read Only?</text>
+				<text>TWRP发现你的系统分区是未经修改的.</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row2_text_y%" placement="5" />
-				<text>TWRP can leave your system partition unmodified to make it easier for you to take official updates.</text>
+				<text>TWRP可以保留系统分区的未修改状态，便于官方更新系统.</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row3_text_y%" placement="5" />
-				<text>TWRP will be unable to prevent the stock ROM from replacing TWRP and will not offer to root your device.</text>
+				<text>这样就不能阻止官方固件启动的时候恢复官方Recovery，也不能Root你的设备.</text>
 			</object>
 
 			<object type="text">
 				<placement x="%center_x%" y="%row4_text_y%" placement="5" />
-				<text>Installing zips or performing adb operations may still modify the system partition.</text>
+				<text>安装刷机包或者用adb命令操作仍然可以修改你的系统分区.</text>
 			</object>
 
 			<object type="checkbox">
 				<condition var1="tw_is_encrypted" var2="0" />
 				<placement x="%col1_x%" y="%row5_text_y%" />
-				<text>Never show this screen during boot again</text>
+				<text>再次启动时不再显示该屏</text>
 				<data variable="tw_never_show_system_ro_page" />
 			</object>
 
 			<object type="button">
 				<placement x="%col_center_x%" y="%row7_text_y%" />
-				<text>Keep Read Only</text>
+				<text>保持只读状态</text>
 				<actions>
 					<action function="mountsystemtoggle">1</action>
 					<action function="set">tw_page_done=1</action>
@@ -3700,7 +3700,7 @@
 			</object>
 
 			<object type="slider">
-				<text>Swipe to Allow Modifications</text>
+				<text>滑动以允许修改</text>
 				<actions>
 					<action function="mountsystemtoggle">0</action>
 					<action function="set">tw_page_done=1</action>
