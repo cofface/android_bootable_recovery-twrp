@@ -1064,8 +1064,10 @@ void TWFunc::Disable_Stock_Recovery_Replace(void) {
 	if (PartitionManager.Mount_By_Path("/system", false)) {
 		// Disable flashing of stock recovery
 		if (TWFunc::Path_Exists("/system/recovery-from-boot.p")) {
-			rename("/system/recovery-from-boot.p", "/system/recovery-from-boot.bak");
-			gui_msg("rename_stock=Renamed stock recovery file in /system to prevent the stock ROM from replacing TWRP.");
+			DataManager::SetValue("tw_busy", 1);
+ 			if (gui_startPage("disable_stock_recovery_replace", 0, 1) != 0) {
+ 				LOGERR("Failed to start disable stock recovery replace page.\n");
+ 			}
 			sync();
 		}
 		PartitionManager.UnMount_By_Path("/system", false);

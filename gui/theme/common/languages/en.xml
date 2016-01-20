@@ -691,5 +691,12 @@
 		<string name="copy_kernel_log">Copied kernel log to {1}</string>
 		<string name="include_kernel_log">Include Kernel Log</string>
 		<string name="unable_set_boot_slot">Error changing bootloader boot slot to {1}</string>
+		<string name="swipe_reboot">Swipe to Reboot</string>
+ 		<string name="recovery_replace_hdr">Disable stock recovery replace</string>
+ 		<string name="recovery_replace_note1">Disable stock recovery replace during system boot.</string>
+ 		<string name="recovery_replace_note2">Disable stock recovery replace now?</string>
+ 		<string name="recovery_replace_cancel">Do not disable</string>
+ 		<string name="swipe_disable_replace">Swipe to Allow Disable</string>
+ 		<string name="disable_replacing">Disable stock recovery replace...</string>
 	</resources>
 </language>

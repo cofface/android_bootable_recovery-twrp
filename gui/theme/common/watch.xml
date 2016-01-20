@@ -5338,6 +5338,43 @@
 				</actions>
 			</slider>
 		</page>
+		
+		<page name="disable_stock_recovery_replace">
+ 			<template name="page"/>
+ 
+ 			<template name="statusbar"/>
+ 
+ 			<text style="text_l">
+ 				<placement x="%col1_x_header%" y="%row1_header_y%"/>
+ 				<text>{@reboot_hdr=Reboot} &gt; {@recovery_replace_hdr=Disable stock recovery replace}</text>
+ 			</text>
+ 
+ 			<text style="text_m_accent">
+ 				<placement x="%center_x%" y="%row2_y%" placement="5"/>
+ 				<text>{@recovery_replace_note1=Disable stock recovery replace during system boot.}</text>
+ 			</text>
+ 
+ 			<text style="text_m">
+ 				<placement x="%center_x%" y="%row4_y%" placement="5"/>
+ 				<text>{@recovery_replace_note2=Disable stock recovery replace now?}</text>
+ 			</text>
+ 
+ 			<button style="main_button_full_width">
+ 				<placement x="%indent%" y="%row6_y%"/>
+ 				<text>{@recovery_replace_cancel=Do not disable}</text>
+ 				<action function="set">tw_page_done=1</action>
+ 			</button>
+ 
+ 			<slider>
+ 				<text>{@swipe_disable_replace=Swipe to Allow Disable}</text>
+ 				<actions>
+ 					<action function="set">tw_action=disable_stock_recovery_replace</action>
+ 					<action function="set">tw_action_text1={@disable_replacing=Disable stock recovery replace...}</action>
+ 					<action function="set">tw_action_text2=</action>
+ 					<action function="page">singleaction_page</action>
+ 				</actions>
+ 			</slider>
+ 		</page>
 
 		<page name="slideout">
 			<fill color="%background_color%">

@@ -364,10 +364,17 @@ int main(int argc, char **argv) {
 
 #ifndef TW_OEM_BUILD
 	// Disable flashing of stock recovery
-	TWFunc::Disable_Stock_Recovery_Replace();
+	//TWFunc::Disable_Stock_Recovery_Replace();
 	// Check for su to see if the device is rooted or not
 	if (DataManager::GetIntValue("tw_mount_system_ro") == 0 && PartitionManager.Mount_By_Path("/system", false)) {
-		// read /system/build.prop to get sdk version and do not offer to root if running M or higher (sdk version 23 == M)
+		// Disable flashing of stock recovery
+ 		if (TWFunc::Path_Exists("/system/recovery-from-boot.p")) {
+ 			DataManager::SetValue("tw_busy", 1);
+ 			if (gui_startPage("disable_stock_recovery_replace", 0, 1) != 0) {
+ 				LOGERR("Failed to start disable stock recovery replace page.\n");
+ 			}
+ 		}
+ 		// read /system/build.prop to get sdk version and do not offer to root if running M or higher (sdk version 23 == M)
 		string sdkverstr = TWFunc::System_Property_Get("ro.build.version.sdk");
 		int sdkver = 23;
 		if (!sdkverstr.empty()) {

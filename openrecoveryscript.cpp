@@ -704,10 +704,10 @@ int OpenRecoveryScript::Run_OpenRecoveryScript_Action() {
 	}
 	if (reboot) {
 		// Disable stock recovery reflashing
-		TWFunc::Disable_Stock_Recovery_Replace();
+		//TWFunc::Disable_Stock_Recovery_Replace();
 		usleep(2000000); // Sleep for 2 seconds before rebooting
-		TWFunc::tw_reboot(rb_system);
-		usleep(5000000); // Sleep for 5 seconds to allow reboot to occur
+		//TWFunc::tw_reboot(rb_system);
+		//usleep(5000000); // Sleep for 5 seconds to allow reboot to occur
 	} else {
 		DataManager::SetValue("tw_page_done", 1);
 	}

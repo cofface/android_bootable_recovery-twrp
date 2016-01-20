@@ -671,16 +671,6 @@
 		<string name="screenshot_err">截图失败！</string>
 		<string name="zip_wipe_cache">一个或多个刷机包请求清除 cache -- 正在清除 cache。</string>
 		<string name="and_sec_wipe_err">无法清除 android secure</string>
-		<string name="dalvik_wipe_err">清除 Dalvik 失败</string>
-		<string name="auto_gen">(Auto Generate)</string>
-		<string name="curr_date">(Current Date)</string>
-		<string name="backup_name_len">备份名称太长。</string>
-		<string name="backup_name_invalid">备份名称 '{1}' 中包含无效字符：'{1}'</string>
-		<string name="no_real_sdcard">此设备没有真实的 SD 卡！正在中止！</string>
-		<string name="cancel_sideload">取消 ADB Sideload…</string>
-		<string name="change_fs_err">更换文件系统时出错。</string>
-		<string name="theme_ver_err">自定义主题和 TWRP 版本不匹配，正在使用原版主题。</string>
-		<string name="up_a_level">（上级目录）</string>
 		<string name="install_reboot" version="2">将会在 %tw_sleep% 秒内重启</string>
 		<string name="adbbackup_error">ADB 备份错误。正在退出…"</string>
 		<string name="adbbackup_control_error">无法写入 adb 控制通道</string>
@@ -689,5 +679,22 @@
 		<string name="copy_kernel_log">已导出内核日志至 {1}</string>
 		<string name="include_kernel_log">包含内核日志</string>
 		<string name="unable_set_boot_slot">更改 bootloader 启动分区至 {1} 错误</string>
+		<string name="dalvik_wipe_err">清除 dalvik 失败</string>
+		<string name="auto_gen">(自动生成)</string>
+		<string name="curr_date">(当前日期)</string>
+		<string name="up_a_level">(返回上级目录)</string>
+		<string name="backup_name_len">备份名称太长.</string>
+		<string name="backup_name_invalid">备份名称中 '{1}' 中包含无效字符: '{1}'</string>
+		<string name="no_real_sdcard">设备没有真正的 SD 卡! 中止!</string>
+		<string name="cancel_sideload">取消ADB sideload...</string>
+		<string name="change_fs_err">更换文件系统出错.</string>
+		<string name="theme_ver_err">自定义主题不兼容TWRP版本. 请使用官方主题.</string>
+		<string name="swipe_reboot">滑动确认重启</string>
+ 		<string name="recovery_replace_hdr">禁止恢复原版Recovery</string>
+ 		<string name="recovery_replace_note1">禁止系统启动时恢复原版Recovery。</string>
+ 		<string name="recovery_replace_note2">立即禁止系统启动时恢复？</string>
+ 		<string name="recovery_replace_cancel">不禁止</string>
+ 		<string name="swipe_disable_replace">滑动确认禁止</string>
+ 		<string name="disable_replacing">禁止恢复原版Recovery...</string>
 	</resources>
 </language>
