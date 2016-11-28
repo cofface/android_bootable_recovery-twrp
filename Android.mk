@@ -208,6 +208,10 @@ endif
 ifneq ($(RECOVERY_SDCARD_ON_DATA),)
 	LOCAL_CFLAGS += -DRECOVERY_SDCARD_ON_DATA
 endif
+#Add data/media use symlink type by cofface
+ifeq ($(BOARD_DATA_MEDIA_USED_SYMLINK),true)
+	LOCAL_CFLAGS += -DDATA_MEDIA_USED_SYMLINK
+endif
 ifneq ($(TW_INCLUDE_DUMLOCK),)
 	LOCAL_CFLAGS += -DTW_INCLUDE_DUMLOCK
 endif

@@ -1305,7 +1305,12 @@ bool TWPartition::Mount(bool Display_Error) {
 		Update_Size(Display_Error);
 
 	if (!Symlink_Mount_Point.empty() && TWFunc::Path_Exists(Symlink_Path)) {
+#ifndef DATA_MEDIA_USED_SYMLINK
 		string Command = "mount -o bind '" + Symlink_Path + "' '" + Symlink_Mount_Point + "'";
+#else
+		string Command = "rm -rf sdcard; ln -s '" + Symlink_Path + "' '" + Symlink_Mount_Point + "'";
+		LOGINFO("data/media use symlink type by cofface@cofface.com.\n");
+#endif		
 		TWFunc::Exec_Cmd(Command);
 	}
 	return true;
