@@ -216,6 +216,10 @@ endif
 ifeq ($(TW_SKIP_SYSTEM_RO_PAGE),true)
     LOCAL_CFLAGS += -DSKIP_SYSTEM_RO_PAGE
 endif
+#Add fix nubia ota by cofface
+ifeq ($(BOARD_FIX_NUBIA_OTA),true)
+	LOCAL_CFLAGS += -DBOARD_FIX_NUBIA_OTA
+endif
 ifneq ($(TW_INCLUDE_DUMLOCK),)
 	LOCAL_CFLAGS += -DTW_INCLUDE_DUMLOCK
 endif

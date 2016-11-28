@@ -241,6 +241,11 @@ int main(int argc, char **argv) {
 					ptr = argptr + strlen("reason") + 1;
 					gui_print("%s\n", ptr);
 				}
+#ifdef BOARD_FIX_NUBIA_OTA
+			} else if (*argptr == 'f') {
+				LOGINFO("Add support nubia OTA by cofface@cofface.com.\n");
+				Zip_File = "/data/dm/delta/system.delta";
+#endif
 			}
 		}
 		printf("\n");
