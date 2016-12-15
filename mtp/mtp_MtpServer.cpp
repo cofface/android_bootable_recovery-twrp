@@ -47,12 +47,24 @@ void twmtp_MtpServer::start()
 #ifdef USB_MTP_DEVICE
 #define STRINGIFY(x) #x
 #define EXPAND(x) STRINGIFY(x)
-	const char* mtp_device = EXPAND(USB_MTP_DEVICE);
-	MTPI("Using '%s' for MTP device.\n", EXPAND(USB_MTP_DEVICE));
-#else
-	const char* mtp_device = "/dev/mtp_usb";
 #endif
-	int fd = open(mtp_device, O_RDWR);
+       const char *USB_MTP_DEVICES[] = {
+#ifdef USB_MTP_DEVICE
+              EXPAND(USB_MTP_DEVICE),
+#endif
+              "/dev/mtp_usb",
+              "/dev/usb_mtp_gadget",
+              NULL
+       };
+       int i = 0, fd = 0;
+       while (USB_MTP_DEVICES[i]) {
+             if ((fd = open(USB_MTP_DEVICES[i], O_RDWR)) >= 0) {
+                     break;
+              }
+             i++;
+       }
+
+       MTPI("Using '%s' for MTP device.\n", USB_MTP_DEVICES[i]);
 	if (fd < 0) {
 		MTPE("could not open MTP driver, errno: %d\n", errno);
 		return;
@@ -70,7 +82,7 @@ void twmtp_MtpServer::start()
 	// This loop restarts the MTP process if the device is unplugged and replugged in
 	while (true) {
 		server->run(fd);
-		fd = open(mtp_device, O_RDWR);
+		fd = open(USB_MTP_DEVICES[i], O_RDWR);
 		usleep(800000);
 	}
 }
