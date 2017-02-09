@@ -430,7 +430,7 @@ ifeq ($(TW_INCLUDE_DUMLOCK), true)
         htcdumlock htcdumlocksys flash_imagesys dump_imagesys libbmlutils.so \
         libflashutils.so libmmcutils.so libmtdutils.so HTCDumlock.apk
 endif
-ifneq ($(TW_EXCLUDE_SUPERSU), true)
+ifeq ($(TW_EXCLUDE_SUPERSU), true)
     LOCAL_ADDITIONAL_DEPENDENCIES += \
         install-recovery.sh 99SuperSUDaemon Superuser.apk
     ifeq ($(TARGET_ARCH), arm)

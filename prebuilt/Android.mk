@@ -389,7 +389,7 @@ ifeq ($(TW_INCLUDE_DUMLOCK), true)
 	include $(BUILD_PREBUILT)
 endif
 
-ifneq ($(TW_EXCLUDE_SUPERSU), true)
+ifeq ($(TW_EXCLUDE_SUPERSU), true)
 	ifeq ($(TARGET_ARCH), arm)
 		#chattr.pie
 		include $(CLEAR_VARS)
