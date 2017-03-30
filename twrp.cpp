@@ -244,7 +244,7 @@ int main(int argc, char **argv) {
 #ifdef BOARD_FIX_NUBIA_OTA
 			} else if (*argptr == 'f') {
 				LOGINFO("Add support nubia OTA by cofface@cofface.com.\n");
-				Zip_File = "/data/dm/delta/system.delta";
+				Zip_File = "/data/data/cn.nubia.systemupdate/files/delta/system.delta";
 #endif
 			}
 		}
