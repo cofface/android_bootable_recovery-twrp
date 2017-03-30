@@ -244,7 +244,11 @@ int main(int argc, char **argv) {
 #ifdef BOARD_FIX_NUBIA_OTA
 			} else if (*argptr == 'f') {
 				LOGINFO("Add support nubia OTA by cofface@cofface.com.\n");
-				Zip_File = "/data/data/cn.nubia.systemupdate/files/delta/system.delta";
+
+				string ORSCommand = "install ";
+				ORSCommand.append("/data/data/cn.nubia.systemupdate/files/delta/system.delta");
+				if (!OpenRecoveryScript::Insert_ORS_Command(ORSCommand))
+					break;
 #endif
 			}
 		}
