@@ -243,16 +243,17 @@ int main(int argc, char **argv) {
 				}
 #ifdef BOARD_FIX_NUBIA_OTA
 			} else if (*argptr == 'f') {
-				LOGINFO("Add support nubia OTA by cofface@cofface.com.\n");
-
 				string ORSCommand = "install ";
 				if (TWFunc::Path_Exists("/data/dm/delta/system.delta") {
-						ORSCommand.append("/data/dm/delta/system.delta");
+				LOGINFO("Had found /data/dm/delta/system.delta by cofface.\n");
+						Zip_File = "/data/dm/delta/system.delta";
 				} else if (TWFunc::Path_Exists("/data/data/cn.nubia.systemupdate/files/delta/system.delta") {
+						LOGINFO("Had found /data/data/cn.nubia.systemupdate/files/delta/system.delta by cofface.\n");
 						ORSCommand.append("/data/data/cn.nubia.systemupdate/files/delta/system.delta");
+						if (!OpenRecoveryScript::Insert_ORS_Command(ORSCommand)) {
+							break;
+							}
 				}
-				if (!OpenRecoveryScript::Insert_ORS_Command(ORSCommand))
-					break;
 #endif
 			}
 		}
